@@ -1,0 +1,20 @@
+{
+  "hero": "1.jpg",
+  "captions": {
+    "1.jpg": { "alt": "Vista principal do Vale do Ouro", "caption": "Entrada e paisagem" },
+    "2.jpg": { "alt": "Cachoeira privativa", "caption": "Cachoeira" },
+    "3.jpg": { "alt": "Chalé e natureza", "caption": "Chalé" },
+    "4.jpg": { "alt": "Área verde do Vale do Ouro", "caption": "Área verde" },
+    "5.jpg": { "alt": "Cachoeira e lazer", "caption": "Cachoeira" },
+    "6.jpg": { "alt": "Estrutura de lazer", "caption": "Lazer" },
+    "7.jpg": { "alt": "Trilhas e natureza", "caption": "Trilhas" },
+    "8.jpg": { "alt": "Deck e mirante", "caption": "Deck" },
+    "cachoeira.png": { "alt": "Cachoeira do Vale do Ouro", "caption": "Cachoeira" },
+    "lazer.jpg": { "alt": "Lazer no Vale do Ouro", "caption": "Lazer" },
+    "trilha.jpg": { "alt": "Trilhas do Vale do Ouro", "caption": "Trilhas" }
+  },
+  "sectionImages": {
+    "sobre": ["2.jpg", "3.jpg"],
+    "lazer": ["cachoeira.png", "lazer.jpg", "trilha.jpg"]
+  }
+}

@@ -1,0 +1,20 @@
+---
+description: Padrão visual para páginas de condomínios e empreendimentos (referência Quinta dos Lagos)
+globs: app/condominios/**/*.tsx
+alwaysApply: false
+---
+
+# Design padrão – Condomínios e Empreendimentos
+
+**Referência obrigatória:** [app/condominios/quinta-dos-lagos/QuintaDosLagosClient.tsx](app/condominios/quinta-dos-lagos/QuintaDosLagosClient.tsx) é o exemplo de padrão visual. Ao criar ou alterar páginas em `app/condominios/` ou `app/empreendimentos/`, manter consistência com esta página.
+
+## Regras visuais
+
+- **Fundo do main:** gradiente `bg-gradient-to-b from-slate-100/60 via-slate-50 to-emerald-50/50` (evitar fundo branco puro).
+- **Texto:** parágrafos principais `text-gray-700`; rótulos de seção (uppercase) `text-gray-500`; títulos `text-primary`.
+- **Seções em blocos:** alternar fundos para criar ritmo – ex.: `bg-white` + `rounded-3xl py-10 px-6 sm:px-8` + `border border-slate-200/80`, `bg-emerald-50/40` ou `bg-emerald-50/50` com `border-emerald-100/80`, `bg-slate-50` com `border-slate-200/80`.
+- **Cards:** fundo definido (`bg-white` ou `bg-slate-50`), `shadow-md` ou `shadow-lg`, `ring-1 ring-black/5`, bordas visíveis para não “sumir” no fundo.
+- **Animações:** usar `motion` (framer-motion/motion) com `fadeInUp` e `staggerContainer` de `@/lib/animations`; seções com `whileInView` e `viewport={{ once: true }}`.
+- **CTA final:** bloco com gradiente primary e botão branco (manter padrão da referência).
+
+Consultar o componente Quinta dos Lagos para estrutura de seções (hero, sobre, ficha técnica, como chegar, localização, lazer, infraestrutura, galeria, investimento, CTA).

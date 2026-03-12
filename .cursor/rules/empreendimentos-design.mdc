@@ -1,0 +1,20 @@
+---
+description: Padrão visual para páginas de empreendimentos (referência Quinta dos Lagos)
+globs: app/empreendimentos/**/*.tsx
+alwaysApply: false
+---
+
+# Design padrão – Empreendimentos
+
+**Referência obrigatória:** [app/condominios/quinta-dos-lagos/QuintaDosLagosClient.tsx](app/condominios/quinta-dos-lagos/QuintaDosLagosClient.tsx) é o exemplo de padrão visual. Ao criar ou alterar páginas em `app/empreendimentos/`, manter consistência com esta página.
+
+## Regras visuais
+
+- **Fundo do main:** gradiente `bg-gradient-to-b from-slate-100/60 via-slate-50 to-emerald-50/50` (evitar fundo branco puro).
+- **Texto:** parágrafos principais `text-gray-700`; rótulos de seção (uppercase) `text-gray-500`; títulos `text-primary`.
+- **Seções em blocos:** alternar fundos – ex.: `bg-white`, `bg-emerald-50/40` ou `bg-slate-50` com `rounded-3xl`, padding e bordas (`border-slate-200/80`, `border-emerald-100/80`).
+- **Cards:** fundo definido, `shadow-md`/`shadow-lg`, `ring-1 ring-black/5`, bordas visíveis.
+- **Animações:** `motion` com `fadeInUp` e `staggerContainer` de `@/lib/animations`; seções com `whileInView`, `viewport={{ once: true }}`.
+- **CTA final:** bloco com gradiente primary e botão branco.
+
+Consultar QuintaDosLagosClient.tsx para estrutura e classes exatas.
