@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import SectionHeader from '@/components/SectionHeader';
-import ListingCard from '@/components/ListingCard';
+import ListingCard, { type ListingCardProps } from '@/components/ListingCard';
 
 export const metadata: Metadata = {
   title: 'Empreendimentos',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
 };
 
-const listings = [
+const listings: ListingCardProps[] = [
   {
     href: '/empreendimentos/tauari-residence',
     imageSrc: '/imagens/tauari.png',
