@@ -22,7 +22,7 @@ type ListingCardProps = {
   /** 'contain' encaixa a imagem inteira no card sem cortar; 'cover' preenche o card (pode cortar) */
   objectFit?: 'cover' | 'contain';
   /** Ajusta o posicionamento da imagem dentro do recorte */
-  imagePosition?: 'center' | 'top';
+  imagePosition?: 'center' | 'top' | string;
 };
 
 export default function ListingCard({
