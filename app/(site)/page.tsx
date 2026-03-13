@@ -563,7 +563,10 @@ export default function HomePage() {
                   <p className="text-white/80 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
                     Tauari Residence é o primeiro empreendimento autoral da Group 33: arquitetura contemporânea, plantas otimizadas e diferenciais exclusivos.
                   </p>
-                  <Link href="/empreendimentos" className="inline-flex items-center justify-center w-12 h-12 border border-white/30 text-white hover:bg-white hover:text-[#01011c] transition-all duration-300">
+                  <Link
+                    href="/empreendimentos/tauari-residence"
+                    className="inline-flex items-center justify-center w-12 h-12 border border-white/30 text-white hover:bg-white hover:text-[#01011c] transition-all duration-300"
+                  >
                     <ArrowRight size={16} strokeWidth={1} />
                   </Link>
                 </div>
@@ -625,7 +628,10 @@ export default function HomePage() {
                   <p className="text-white/40 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
                     Design orgânico inspirado nas curvas do litoral. Studios e apartamentos de 1 e 2 dormitórios com rooftop panorâmico e automação residencial completa.
                   </p>
-                  <Link href="/empreendimentos" className="inline-flex items-center justify-center w-12 h-12 border border-white/15 text-white/35 hover:bg-white hover:text-[#01011c] transition-all duration-300">
+                  <Link
+                    href="/empreendimentos/empreendimento-01"
+                    className="inline-flex items-center justify-center w-12 h-12 border border-white/15 text-white/35 hover:bg-white hover:text-[#01011c] transition-all duration-300"
+                  >
                     <ArrowRight size={16} strokeWidth={1} />
                   </Link>
                 </div>

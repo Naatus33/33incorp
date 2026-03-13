@@ -133,6 +133,126 @@ export default function TauariResidenceClient({
           </p>
         </motion.div>
 
+        <motion.section
+          className="mb-16 py-8 px-6 sm:px-8 rounded-3xl bg-slate-50/80 border border-slate-200/60"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={staggerContainer}
+        >
+          <motion.h2
+            variants={fadeInUp}
+            className="flex items-center justify-center gap-2 text-[0.625rem] font-medium tracking-[0.3em] uppercase text-gray-500 mb-8"
+          >
+            <Images size={16} className="text-primary" />
+            Galeria
+          </motion.h2>
+          <motion.div
+            variants={fadeInUp}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
+          >
+            {galleryImages.map((image, index) => (
+              <motion.button
+                key={image.src}
+                type="button"
+                onClick={() => setLightboxIndex(index)}
+                whileHover={{ scale: 1.02, transition: { duration: 0.25 } }}
+                className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden group bg-gray-100 ring-1 ring-black/5 shadow-md hover:shadow-xl transition-shadow cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                  <ZoomIn
+                    className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg"
+                    strokeWidth={1.5}
+                  />
+                </div>
+              </motion.button>
+            ))}
+          </motion.div>
+
+          <AnimatePresence>
+            {lightboxImage && lightboxIndex !== null && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 cursor-zoom-out"
+                onClick={() => setLightboxIndex(null)}
+                role="dialog"
+                aria-modal="true"
+                aria-label="Galeria em tela cheia"
+              >
+                <button
+                  type="button"
+                  onClick={() => setLightboxIndex(null)}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white z-10"
+                  aria-label="Fechar"
+                >
+                  <X size={24} />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToPrev();
+                  }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white z-10"
+                  aria-label="Foto anterior"
+                >
+                  <ChevronLeft size={28} />
+                </button>
+
+                <motion.div
+                  key={lightboxIndex}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative max-w-[90vw] max-h-[90vh] w-full h-full flex items-center justify-center"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Image
+                    src={lightboxImage.src}
+                    alt={lightboxImage.alt}
+                    width={1920}
+                    height={1080}
+                    className="object-contain max-w-full max-h-[90vh] w-auto h-auto rounded-lg shadow-2xl"
+                    sizes="90vw"
+                  />
+                </motion.div>
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goToNext();
+                  }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white z-10"
+                  aria-label="Próxima foto"
+                >
+                  <ChevronRight size={28} />
+                </button>
+
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-black/50 text-white text-sm font-medium z-10">
+                  {lightboxIndex + 1} / {totalImages}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <p className="mt-6 text-center text-xs text-gray-500">
+            As imagens são ilustrativas e podem ser atualizadas conforme o avanço do projeto.
+          </p>
+        </motion.section>
+
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-10 lg:gap-14 mb-16"
           initial="hidden"
@@ -373,126 +493,6 @@ export default function TauariResidenceClient({
               </div>
             </div>
           </motion.div>
-        </motion.section>
-
-        <motion.section
-          className="mb-16 py-8 px-6 sm:px-8 rounded-3xl bg-slate-50/80 border border-slate-200/60"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={staggerContainer}
-        >
-          <motion.h2
-            variants={fadeInUp}
-            className="flex items-center justify-center gap-2 text-[0.625rem] font-medium tracking-[0.3em] uppercase text-gray-500 mb-8"
-          >
-            <Images size={16} className="text-primary" />
-            Galeria
-          </motion.h2>
-          <motion.div
-            variants={fadeInUp}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5"
-          >
-            {galleryImages.map((image, index) => (
-              <motion.button
-                key={image.src}
-                type="button"
-                onClick={() => setLightboxIndex(index)}
-                whileHover={{ scale: 1.02, transition: { duration: 0.25 } }}
-                className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden group bg-gray-100 ring-1 ring-black/5 shadow-md hover:shadow-xl transition-shadow cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                  <ZoomIn
-                    className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg"
-                    strokeWidth={1.5}
-                  />
-                </div>
-              </motion.button>
-            ))}
-          </motion.div>
-
-          <AnimatePresence>
-            {lightboxImage && lightboxIndex !== null && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 cursor-zoom-out"
-                onClick={() => setLightboxIndex(null)}
-                role="dialog"
-                aria-modal="true"
-                aria-label="Galeria em tela cheia"
-              >
-                <button
-                  type="button"
-                  onClick={() => setLightboxIndex(null)}
-                  className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white z-10"
-                  aria-label="Fechar"
-                >
-                  <X size={24} />
-                </button>
-
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    goToPrev();
-                  }}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white z-10"
-                  aria-label="Foto anterior"
-                >
-                  <ChevronLeft size={28} />
-                </button>
-
-                <motion.div
-                  key={lightboxIndex}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.2 }}
-                  className="relative max-w-[90vw] max-h-[90vh] w-full h-full flex items-center justify-center"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Image
-                    src={lightboxImage.src}
-                    alt={lightboxImage.alt}
-                    width={1920}
-                    height={1080}
-                    className="object-contain max-w-full max-h-[90vh] w-auto h-auto rounded-lg shadow-2xl"
-                    sizes="90vw"
-                  />
-                </motion.div>
-
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    goToNext();
-                  }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white z-10"
-                  aria-label="Próxima foto"
-                >
-                  <ChevronRight size={28} />
-                </button>
-
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-black/50 text-white text-sm font-medium z-10">
-                  {lightboxIndex + 1} / {totalImages}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <p className="mt-6 text-center text-xs text-gray-500">
-            As imagens são ilustrativas e podem ser atualizadas conforme o avanço do projeto.
-          </p>
         </motion.section>
 
         <motion.section

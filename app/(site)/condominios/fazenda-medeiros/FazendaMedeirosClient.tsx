@@ -149,105 +149,6 @@ export default function FazendaMedeirosClient({
           </motion.div>
         )}
 
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-12 lg:gap-16 mb-24"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp}>
-            <h2 className="flex items-center gap-2 text-[0.625rem] font-medium tracking-[0.3em] uppercase text-gray-500 mb-4">
-              <MapPin className="text-primary" size={14} />
-              Sobre o Empreendimento
-            </h2>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-primary mb-6">
-              Onde a imensidão do mar encontra a alma do campo.
-            </h3>
-            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
-              A Fazenda Medeiros é um empreendimento que integra natureza, infraestrutura completa e localização estratégica. Proximidade com o mar, ambiente de campo, área de preservação beira-rio e lagoa integrada ao projeto compõem um novo jeito de viver.
-            </p>
-            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
-              Com mais de 32.000 m² de área comum, o condomínio oferece estrutura de lazer completa — Clubhouse, SportClub e RiverPark — além de segurança inteligente e acesso controlado. Lotes de 400 m² a 700 m² para quem busca qualidade de vida e integração com o meio ambiente.
-            </p>
-            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed">
-              A apenas 8 minutos da praia e 2.500 metros da BR-101, o Fazenda Medeiros une a tranquilidade do campo à praticidade de deslocamento para as principais cidades e atrações da região.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={fadeInUp}
-            className="bg-slate-50 border border-primary/10 rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-lg ring-1 ring-black/5"
-          >
-            <div className="flex items-start gap-3">
-              <div className="p-2 rounded-xl bg-primary/10 text-primary">
-                <ClipboardList size={20} />
-              </div>
-              <div>
-                <span className="block text-[0.625rem] font-medium tracking-[0.25em] uppercase text-gray-500 mb-2">
-                  Ficha Técnica
-                </span>
-                <h3 className="text-xl font-light text-primary">
-                  Dados gerais do empreendimento
-                </h3>
-              </div>
-            </div>
-            <dl className="space-y-4 text-sm text-gray-700">
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
-                  <Square size={14} className="text-primary/60" /> Área comum
-                </dt>
-                <dd className="font-medium text-right">32.000 m²</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
-                  <LayoutGrid size={14} className="text-primary/60" /> Lotes
-                </dt>
-                <dd className="font-medium text-right">321 lotes de 400 a 700 m²</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
-                  <Trees size={14} className="text-primary/60" /> Área arborizada
-                </dt>
-                <dd className="font-medium text-right">23.635,98 m²</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
-                  <Palette size={14} className="text-primary/60" /> SportClub
-                </dt>
-                <dd className="font-medium text-right">2.642 m²</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
-                  <Home size={14} className="text-primary/60" /> Clubhouse
-                </dt>
-                <dd className="font-medium text-right">1.732 m²</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
-                  <MapPin size={14} className="text-primary/60" /> Localização
-                </dt>
-                <dd className="font-medium text-right">Estrada Geral de Medeiros</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4">
-                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
-                  <Camera size={14} className="text-primary/60" /> Segurança
-                </dt>
-                <dd className="font-medium text-right">Guarita inteligente, acesso controlado</dd>
-              </div>
-            </dl>
-
-            <div className="mt-4 flex items-start gap-3 text-xs text-gray-600 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
-              <Info size={16} className="text-primary shrink-0 mt-0.5" />
-              <p>
-                Os dados acima podem ser atualizados a qualquer momento conforme o
-                andamento do projeto. Use esta seção para manter as informações
-                técnicas sempre alinhadas com o material comercial.
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-
         <motion.section
           className="mb-24 py-10 px-6 sm:px-8 rounded-3xl bg-slate-50/80 border border-slate-200/60"
           initial="hidden"
@@ -361,6 +262,105 @@ export default function FazendaMedeirosClient({
             As imagens são ilustrativas e podem ser atualizadas conforme o avanço do projeto.
           </p>
         </motion.section>
+
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-12 lg:gap-16 mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={staggerContainer}
+        >
+          <motion.div variants={fadeInUp}>
+            <h2 className="flex items-center gap-2 text-[0.625rem] font-medium tracking-[0.3em] uppercase text-gray-500 mb-4">
+              <MapPin className="text-primary" size={14} />
+              Sobre o Empreendimento
+            </h2>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-primary mb-6">
+              Onde a imensidão do mar encontra a alma do campo.
+            </h3>
+            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
+              A Fazenda Medeiros é um empreendimento que integra natureza, infraestrutura completa e localização estratégica. Proximidade com o mar, ambiente de campo, área de preservação beira-rio e lagoa integrada ao projeto compõem um novo jeito de viver.
+            </p>
+            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
+              Com mais de 32.000 m² de área comum, o condomínio oferece estrutura de lazer completa — Clubhouse, SportClub e RiverPark — além de segurança inteligente e acesso controlado. Lotes de 400 m² a 700 m² para quem busca qualidade de vida e integração com o meio ambiente.
+            </p>
+            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed">
+              A apenas 8 minutos da praia e 2.500 metros da BR-101, o Fazenda Medeiros une a tranquilidade do campo à praticidade de deslocamento para as principais cidades e atrações da região.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            className="bg-slate-50 border border-primary/10 rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-lg ring-1 ring-black/5"
+          >
+            <div className="flex items-start gap-3">
+              <div className="p-2 rounded-xl bg-primary/10 text-primary">
+                <ClipboardList size={20} />
+              </div>
+              <div>
+                <span className="block text-[0.625rem] font-medium tracking-[0.25em] uppercase text-gray-500 mb-2">
+                  Ficha Técnica
+                </span>
+                <h3 className="text-xl font-light text-primary">
+                  Dados gerais do empreendimento
+                </h3>
+              </div>
+            </div>
+            <dl className="space-y-4 text-sm text-gray-700">
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
+                  <Square size={14} className="text-primary/60" /> Área comum
+                </dt>
+                <dd className="font-medium text-right">32.000 m²</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
+                  <LayoutGrid size={14} className="text-primary/60" /> Lotes
+                </dt>
+                <dd className="font-medium text-right">321 lotes de 400 a 700 m²</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
+                  <Trees size={14} className="text-primary/60" /> Área arborizada
+                </dt>
+                <dd className="font-medium text-right">23.635,98 m²</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
+                  <Palette size={14} className="text-primary/60" /> SportClub
+                </dt>
+                <dd className="font-medium text-right">2.642 m²</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
+                  <Home size={14} className="text-primary/60" /> Clubhouse
+                </dt>
+                <dd className="font-medium text-right">1.732 m²</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
+                  <MapPin size={14} className="text-primary/60" /> Localização
+                </dt>
+                <dd className="font-medium text-right">Estrada Geral de Medeiros</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4">
+                <dt className="flex items-center gap-2 text-gray-500 text-[0.6875rem] uppercase tracking-[0.18em]">
+                  <Camera size={14} className="text-primary/60" /> Segurança
+                </dt>
+                <dd className="font-medium text-right">Guarita inteligente, acesso controlado</dd>
+              </div>
+            </dl>
+
+            <div className="mt-4 flex items-start gap-3 text-xs text-gray-600 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+              <Info size={16} className="text-primary shrink-0 mt-0.5" />
+              <p>
+                Os dados acima podem ser atualizados a qualquer momento conforme o
+                andamento do projeto. Use esta seção para manter as informações
+                técnicas sempre alinhadas com o material comercial.
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
 
         <motion.section
           className="mb-24 py-10 px-6 sm:px-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm"

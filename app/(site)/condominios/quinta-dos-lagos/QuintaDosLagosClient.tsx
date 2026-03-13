@@ -141,12 +141,12 @@ export default function QuintaDosLagosClient({
         </motion.div>
 
         <motion.div variants={fadeInUp} className="mb-16">
-          <div className="relative w-full h-[13.75rem] sm:h-[18.75rem] md:h-[22.5rem] lg:h-[27.5rem] xl:h-[32.5rem] rounded-3xl overflow-hidden shadow-xl ring-1 ring-black/5">
+          <div className="relative w-full aspect-[16/9] max-h-[32.5rem] rounded-3xl overflow-hidden shadow-xl ring-1 ring-black/5 bg-slate-200/40">
             <Image
               src="/imagens/quinta%20dos%20lagos/10490D_BMAX_Quinta%20dos%20Lagos_Pasta%20do%20Corretor-1_page-0001.jpg"
               alt="Perspectiva principal do Condomínio Quinta dos Lagos"
               fill
-              className="object-cover"
+              className="object-cover object-top"
               priority
               sizes="100vw"
             />
@@ -155,116 +155,6 @@ export default function QuintaDosLagosClient({
             Entre lagos, verde e arquitetura contemporânea, o Quinta dos Lagos
             nasce como um refúgio para morar, descansar e investir no longo prazo.
           </p>
-        </motion.div>
-
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-10 lg:gap-14 mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={staggerContainer}
-        >
-          <motion.div variants={fadeInUp}>
-            <h2 className="flex items-center gap-2 text-[0.625rem] font-medium tracking-[0.3em] uppercase text-gray-500 mb-4">
-              <MapPin className="text-primary" size={14} />
-              Sobre o Condomínio
-            </h2>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-primary mb-6">
-              O clima do campo, com o mar a 15 minutos de distância.
-            </h3>
-            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
-              Localizado na praia de Balneário Piçarras e distante cerca de 7 km da cidade,
-              o Quinta dos Lagos é o primeiro Condomínio-Fazenda do litoral norte de Santa Catarina.
-            </p>
-            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
-              Próxima a pontos turísticos como o Beto Carrero World, a cidade é conhecida por sua
-              beleza natural e pelas águas cristalinas de seus mais de 7 km de extensão. Além disso,
-              oferece ótima infraestrutura urbana, com diversas opções de gastronomia, marinas e um
-              renovado calçadão, próprio para caminhadas.
-            </p>
-            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed">
-              Possui também uma característica rara: é uma praia com parte de seu território acima
-              do nível do mar, em colinas e montanhas, como as da região do empreendimento Quinta dos Lagos.
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={fadeInUp}
-            className="bg-slate-50 border border-primary/10 rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-lg ring-1 ring-black/5"
-          >
-            <div className="flex items-start gap-3">
-              <div className="p-2 rounded-xl bg-primary/10 text-primary">
-                <ClipboardList size={20} />
-              </div>
-              <div>
-                <span className="block text-[0.625rem] font-medium tracking-[0.25em] uppercase text-gray-500 mb-2">
-                  Ficha Técnica
-                </span>
-                <h3 className="text-xl font-light text-primary">
-                  Dados gerais do empreendimento
-                </h3>
-              </div>
-            </div>
-            <dl className="space-y-4 text-sm text-gray-700">
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
-                  <Square size={14} className="text-primary/60" /> Área total
-                </dt>
-                <dd className="font-medium text-right">553.820 m²</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
-                  <Palette size={14} className="text-primary/60" /> Área de lazer
-                </dt>
-                <dd className="font-medium text-right">A confirmar</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
-                  <Trees size={14} className="text-primary/60" /> Área verde
-                </dt>
-                <dd className="font-medium text-right">A confirmar</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
-                  <LayoutGrid size={14} className="text-primary/60" /> Lotes
-                </dt>
-                <dd className="font-medium text-right">159 lotes de 1.450 a 2.600 m²</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
-                  <MapPin size={14} className="text-primary/60" /> Localização
-                </dt>
-                <dd className="font-medium text-right">Balneário Piçarras, SC</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
-                  <Wrench size={14} className="text-primary/60" /> Infraestrutura
-                </dt>
-                <dd className="font-medium text-right">Rede de esgoto, pavimentação, água, drenagem pluvial</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
-                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
-                  <Camera size={14} className="text-primary/60" /> Segurança
-                </dt>
-                <dd className="font-medium text-right">Portaria 24h, câmeras 24h</dd>
-              </div>
-              <div className="flex items-center justify-between gap-4">
-                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
-                  <CircleDot size={14} className="text-primary/60" /> Diferencial
-                </dt>
-                <dd className="font-medium text-right">Heliponto</dd>
-              </div>
-            </dl>
-
-            <div className="mt-4 flex items-start gap-3 text-xs text-gray-600 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
-              <Info size={16} className="text-primary shrink-0 mt-0.5" />
-              <p>
-                Os dados acima podem ser atualizados a qualquer momento conforme o
-                andamento do projeto. Use esta seção para manter as informações
-                técnicas sempre alinhadas com o material comercial.
-              </p>
-            </div>
-          </motion.div>
         </motion.div>
 
         <motion.section
@@ -377,6 +267,116 @@ export default function QuintaDosLagosClient({
             As imagens são ilustrativas e podem ser atualizadas conforme o avanço do projeto.
           </p>
         </motion.section>
+
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-[1.4fr,1fr] gap-10 lg:gap-14 mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={staggerContainer}
+        >
+          <motion.div variants={fadeInUp}>
+            <h2 className="flex items-center gap-2 text-[0.625rem] font-medium tracking-[0.3em] uppercase text-gray-500 mb-4">
+              <MapPin className="text-primary" size={14} />
+              Sobre o Condomínio
+            </h2>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-primary mb-6">
+              O clima do campo, com o mar a 15 minutos de distância.
+            </h3>
+            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
+              Localizado na praia de Balneário Piçarras e distante cerca de 7 km da cidade,
+              o Quinta dos Lagos é o primeiro Condomínio-Fazenda do litoral norte de Santa Catarina.
+            </p>
+            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
+              Próxima a pontos turísticos como o Beto Carrero World, a cidade é conhecida por sua
+              beleza natural e pelas águas cristalinas de seus mais de 7 km de extensão. Além disso,
+              oferece ótima infraestrutura urbana, com diversas opções de gastronomia, marinas e um
+              renovado calçadão, próprio para caminhadas.
+            </p>
+            <p className="text-gray-700 font-light text-sm sm:text-base leading-relaxed">
+              Possui também uma característica rara: é uma praia com parte de seu território acima
+              do nível do mar, em colinas e montanhas, como as da região do empreendimento Quinta dos Lagos.
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            className="bg-slate-50 border border-primary/10 rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-lg ring-1 ring-black/5"
+          >
+            <div className="flex items-start gap-3">
+              <div className="p-2 rounded-xl bg-primary/10 text-primary">
+                <ClipboardList size={20} />
+              </div>
+              <div>
+                <span className="block text-[0.625rem] font-medium tracking-[0.25em] uppercase text-gray-500 mb-2">
+                  Ficha Técnica
+                </span>
+                <h3 className="text-xl font-light text-primary">
+                  Dados gerais do empreendimento
+                </h3>
+              </div>
+            </div>
+            <dl className="space-y-4 text-sm text-gray-700">
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
+                  <Square size={14} className="text-primary/60" /> Área total
+                </dt>
+                <dd className="font-medium text-right">553.820 m²</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
+                  <Palette size={14} className="text-primary/60" /> Área de lazer
+                </dt>
+                <dd className="font-medium text-right">A confirmar</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
+                  <Trees size={14} className="text-primary/60" /> Área verde
+                </dt>
+                <dd className="font-medium text-right">A confirmar</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
+                  <LayoutGrid size={14} className="text-primary/60" /> Lotes
+                </dt>
+                <dd className="font-medium text-right">159 lotes de 1.450 a 2.600 m²</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
+                  <MapPin size={14} className="text-primary/60" /> Localização
+                </dt>
+                <dd className="font-medium text-right">Balneário Piçarras, SC</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
+                  <Wrench size={14} className="text-primary/60" /> Infraestrutura
+                </dt>
+                <dd className="font-medium text-right">Rede de esgoto, pavimentação, água, drenagem pluvial</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4 border-b border-gray-200 pb-3">
+                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
+                  <Camera size={14} className="text-primary/60" /> Segurança
+                </dt>
+                <dd className="font-medium text-right">Portaria 24h, câmeras 24h</dd>
+              </div>
+              <div className="flex items-center justify-between gap-4">
+                <dt className="flex items-center gap-2 text-gray-500 text-[11px] uppercase tracking-[0.18em]">
+                  <CircleDot size={14} className="text-primary/60" /> Diferencial
+                </dt>
+                <dd className="font-medium text-right">Heliponto</dd>
+              </div>
+            </dl>
+
+            <div className="mt-4 flex items-start gap-3 text-xs text-gray-600 bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+              <Info size={16} className="text-primary shrink-0 mt-0.5" />
+              <p>
+                Os dados acima podem ser atualizados a qualquer momento conforme o
+                andamento do projeto. Use esta seção para manter as informações
+                técnicas sempre alinhadas com o material comercial.
+              </p>
+            </div>
+          </motion.div>
+        </motion.div>
 
         <motion.section
           className="mb-16 py-8 px-6 sm:px-8 rounded-3xl bg-white border border-slate-200/80 shadow-sm"

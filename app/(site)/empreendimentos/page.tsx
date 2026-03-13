@@ -60,7 +60,7 @@ const listings: ListingCardProps[] = [
     imagePosition: 'top',
   },
   {
-    href: '/empreendimentos',
+    href: '/empreendimentos/empreendimento-01',
     imageSrc: '/imagens/aurora.png',
     imageAlt: 'Aurora Residences',
     title: 'Aurora Residences',

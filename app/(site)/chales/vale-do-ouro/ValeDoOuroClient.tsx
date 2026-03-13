@@ -118,12 +118,12 @@ export default function ValeDoOuroClient({
         </motion.p>
 
         <motion.div variants={fadeInUp} className="mb-24">
-          <div className="relative w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[520px] xl:h-[600px] rounded-3xl overflow-hidden shadow-xl ring-1 ring-black/5">
+          <div className="relative w-full aspect-[16/9] max-h-[32.5rem] rounded-3xl overflow-hidden shadow-xl ring-1 ring-black/5 bg-slate-200/40">
             <Image
               src={heroSrc}
               alt={heroAlt}
               fill
-              className="object-cover"
+              className="object-cover object-top"
               priority
               sizes="100vw"
             />
@@ -135,61 +135,6 @@ export default function ValeDoOuroClient({
             Um refúgio com vista privilegiada, trilhas ecológicas e experiência única em meio à biodiversidade da região.
           </p>
         </motion.div>
-
-        <motion.section
-          className="mb-24"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={staggerContainer}
-        >
-          <motion.h2
-            variants={fadeInUp}
-            className="flex items-center gap-2 text-[10px] font-medium tracking-[0.3em] uppercase text-gray-500 mb-4"
-          >
-            <Info className="text-primary" size={14} />
-            Sobre o Empreendimento
-          </motion.h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-primary mb-6">
-            O Vale do Ouro é um empreendimento exclusivo composto por cabanas integradas à natureza.
-          </h3>
-          <motion.p variants={fadeInUp} className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
-            Projetadas para proporcionar conforto, privacidade e conexão total com o ambiente natural. O projeto une arquitetura funcional, moderna e aconchegante a uma implantação que valoriza a paisagem e a preservação ambiental.
-          </motion.p>
-          <motion.p variants={fadeInUp} className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-6">
-            As unidades foram desenvolvidas para oferecer:
-          </motion.p>
-          <motion.ul
-            variants={fadeInUp}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 font-light text-sm sm:text-base mb-8"
-          >
-            {['Experiência privativa', 'Integração com a natureza', 'Vista como diferencial exclusivo', 'Infraestrutura planejada para conforto', 'Ambientes instagramáveis e acolhedores'].map((item) => (
-              <li key={item} className="flex items-center gap-2">
-                <span className="text-primary">•</span> {item}
-              </li>
-            ))}
-          </motion.ul>
-          {sectionImages.sobre && sectionImages.sobre.length > 0 && (
-            <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {sectionImages.sobre.map((img) => (
-                <div key={img.src} className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md ring-1 ring-black/5">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 640px) 50vw, 100vw"
-                  />
-                  {img.caption && (
-                    <p className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs font-medium py-2 px-3 text-center">
-                      {img.caption}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </motion.div>
-          )}
-        </motion.section>
 
         <motion.section
           className="mb-24 py-10 px-6 sm:px-8 rounded-3xl bg-slate-50/80 border border-slate-200/60"
@@ -311,6 +256,61 @@ export default function ValeDoOuroClient({
           <p className="mt-6 text-center text-xs text-gray-500">
             As imagens são ilustrativas e podem ser atualizadas conforme o avanço do projeto.
           </p>
+        </motion.section>
+
+        <motion.section
+          className="mb-24"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={staggerContainer}
+        >
+          <motion.h2
+            variants={fadeInUp}
+            className="flex items-center gap-2 text-[10px] font-medium tracking-[0.3em] uppercase text-gray-500 mb-4"
+          >
+            <Info className="text-primary" size={14} />
+            Sobre o Empreendimento
+          </motion.h2>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-primary mb-6">
+            O Vale do Ouro é um empreendimento exclusivo composto por cabanas integradas à natureza.
+          </h3>
+          <motion.p variants={fadeInUp} className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-4">
+            Projetadas para proporcionar conforto, privacidade e conexão total com o ambiente natural. O projeto une arquitetura funcional, moderna e aconchegante a uma implantação que valoriza a paisagem e a preservação ambiental.
+          </motion.p>
+          <motion.p variants={fadeInUp} className="text-gray-700 font-light text-sm sm:text-base leading-relaxed mb-6">
+            As unidades foram desenvolvidas para oferecer:
+          </motion.p>
+          <motion.ul
+            variants={fadeInUp}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 font-light text-sm sm:text-base mb-8"
+          >
+            {['Experiência privativa', 'Integração com a natureza', 'Vista como diferencial exclusivo', 'Infraestrutura planejada para conforto', 'Ambientes instagramáveis e acolhedores'].map((item) => (
+              <li key={item} className="flex items-center gap-2">
+                <span className="text-primary">•</span> {item}
+              </li>
+            ))}
+          </motion.ul>
+          {sectionImages.sobre && sectionImages.sobre.length > 0 && (
+            <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {sectionImages.sobre.map((img) => (
+                <div key={img.src} className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md ring-1 ring-black/5">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                  />
+                  {img.caption && (
+                    <p className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-xs font-medium py-2 px-3 text-center">
+                      {img.caption}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </motion.div>
+          )}
         </motion.section>
 
         <motion.section
