@@ -92,6 +92,8 @@ type HeroFadePhase = 'visible' | 'fadingOut' | 'fadingIn';
 
 const HERO_FADE_OUT_START = 1.2; // segundos antes do fim para iniciar fade out
 const HERO_FADE_IN_DURATION = 600; // ms
+const HERO_MIN_OPACITY = 0.2;
+const HERO_FADE_SAFETY_TIMEOUT = 4000; // ms
 
 export default function HomePage() {
   const [heroVideoError, setHeroVideoError] = useState(false);
@@ -100,6 +102,7 @@ export default function HomePage() {
   const heroVideoRef = useRef<HTMLVideoElement>(null);
   const wasNearEndRef = useRef(false);
   const fadeInTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fadeSafetyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -127,14 +130,44 @@ export default function HomePage() {
   const onHeroTimeUpdate = () => {
     const video = heroVideoRef.current;
     if (!video || !Number.isFinite(video.duration)) return;
+
     const { currentTime, duration } = video;
+
     if (currentTime >= duration - HERO_FADE_OUT_START) {
       wasNearEndRef.current = true;
       setHeroFadePhase('fadingOut');
-    } else if (wasNearEndRef.current && currentTime < 0.4) {
+
+      if (fadeInTimeoutRef.current) {
+        clearTimeout(fadeInTimeoutRef.current);
+        fadeInTimeoutRef.current = null;
+      }
+      if (fadeSafetyTimeoutRef.current) {
+        clearTimeout(fadeSafetyTimeoutRef.current);
+        fadeSafetyTimeoutRef.current = null;
+      }
+
+      fadeSafetyTimeoutRef.current = setTimeout(() => {
+        setHeroFadePhase('visible');
+        wasNearEndRef.current = false;
+        fadeSafetyTimeoutRef.current = null;
+      }, HERO_FADE_SAFETY_TIMEOUT);
+
+      return;
+    }
+
+    if (wasNearEndRef.current && currentTime < 0.4) {
       wasNearEndRef.current = false;
       setHeroFadePhase('fadingIn');
-      if (fadeInTimeoutRef.current) clearTimeout(fadeInTimeoutRef.current);
+
+      if (fadeSafetyTimeoutRef.current) {
+        clearTimeout(fadeSafetyTimeoutRef.current);
+        fadeSafetyTimeoutRef.current = null;
+      }
+
+      if (fadeInTimeoutRef.current) {
+        clearTimeout(fadeInTimeoutRef.current);
+      }
+
       fadeInTimeoutRef.current = setTimeout(() => {
         setHeroFadePhase('visible');
         fadeInTimeoutRef.current = null;
@@ -144,7 +177,12 @@ export default function HomePage() {
 
   useEffect(() => {
     return () => {
-      if (fadeInTimeoutRef.current) clearTimeout(fadeInTimeoutRef.current);
+      if (fadeInTimeoutRef.current) {
+        clearTimeout(fadeInTimeoutRef.current);
+      }
+      if (fadeSafetyTimeoutRef.current) {
+        clearTimeout(fadeSafetyTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -159,7 +197,10 @@ export default function HomePage() {
             <div
               className="absolute inset-0 transition-opacity duration-[1200ms] ease-out"
               style={{
-                opacity: heroFadePhase === 'fadingOut' ? 0 : 1,
+                opacity:
+                  heroFadePhase === 'fadingOut'
+                    ? HERO_MIN_OPACITY
+                    : 1,
                 transitionDuration:
                   heroFadePhase === 'fadingOut'
                     ? '1200ms'
