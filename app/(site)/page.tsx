@@ -539,104 +539,104 @@ export default function HomePage() {
             variants={staggerFast}
           >
             {/* EMPREENDIMENTO 1 */}
-            <motion.div
-              className="group relative border-b lg:border-r border-white/10 cursor-pointer"
-              variants={slideLeft}
-              whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(0,0,0,0.35)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
-              whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
-            >
-              <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
-                <Image
-                  src="/imagens/tauari.png"
-                  alt="Tauari Residence"
-                  fill
-                  loading="lazy"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-[#01011c]/20 group-hover:bg-[#01011c]/40 transition-colors duration-300" />
+            <Link href="/empreendimentos/tauari-residence" className="block h-full">
+              <motion.div
+                className="group relative border-b lg:border-r border-white/10 cursor-pointer h-full"
+                variants={slideLeft}
+                whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(0,0,0,0.35)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
+                whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
+              >
+                <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
+                  <Image
+                    src="/imagens/tauari.png"
+                    alt="Tauari Residence"
+                    fill
+                    loading="lazy"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-[#01011c]/20 group-hover:bg-[#01011c]/40 transition-colors duration-300" />
 
-                {/* selo de lançamento removido */}
+                  {/* selo de lançamento removido */}
 
-                <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/60 to-transparent">
-                  <h4 className="text-3xl font-light text-white uppercase mb-4">Tauari<br />Residence</h4>
-                  <p className="text-white/80 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
-                    Tauari Residence é o primeiro empreendimento autoral da Group 33: arquitetura contemporânea, plantas otimizadas e diferenciais exclusivos.
-                  </p>
-                  <Link
-                    href="/empreendimentos/tauari-residence"
-                    className="inline-flex items-center justify-center w-12 h-12 border border-white/30 text-white hover:bg-white hover:text-[#01011c] transition-all duration-300"
-                  >
-                    <ArrowRight size={16} strokeWidth={1} />
-                  </Link>
+                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/60 to-transparent">
+                    <h4 className="text-3xl font-light text-white uppercase mb-4">Tauari<br />Residence</h4>
+                    <p className="text-white/80 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
+                      Tauari Residence é o primeiro empreendimento autoral da Group 33: arquitetura contemporânea, plantas otimizadas e diferenciais exclusivos.
+                    </p>
+                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/30 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
+                      <ArrowRight size={16} strokeWidth={1} />
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
 
             {/* EMPREENDIMENTO 2 - 33 INCORP RESIDENCE (EM BREVE) */}
-            <motion.div
-              className="group relative border-b lg:border-r border-white/10 cursor-pointer"
-              variants={scaleIn}
-              whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(0,0,0,0.35)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
-              whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
-            >
-              <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
-                <Image
-                  src="/novoempre.jpeg"
-                  alt="33 Incorp Residence"
-                  fill
-                  loading="lazy"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-[#01011c]/20 group-hover:bg-[#01011c]/40 transition-colors duration-300" />
-                <EmBreveRibbon />
+            <Link href="/empreendimentos/horizon" className="block h-full">
+              <motion.div
+                className="group relative border-b lg:border-r border-white/10 cursor-pointer h-full"
+                variants={scaleIn}
+                whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(0,0,0,0.35)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
+                whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
+              >
+                <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
+                  <Image
+                    src="/novoempre.jpeg"
+                    alt="33 Incorp Residence"
+                    fill
+                    loading="lazy"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-[#01011c]/20 group-hover:bg-[#01011c]/40 transition-colors duration-300" />
+                  <EmBreveRibbon />
 
-                <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/60 to-transparent">
-                  <h4 className="text-3xl font-light text-white uppercase mb-4">33 Incorp Residence</h4>
-                  <p className="text-white/80 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
-                    Torre residencial contemporânea com foco em design autoral, conforto e valorização patrimonial, em uma localização estratégica de Joinville.
-                  </p>
-                  <Link href="/empreendimentos/horizon" className="inline-flex items-center justify-center w-12 h-12 border border-white/30 text-white hover:bg-white hover:text-[#01011c] transition-all duration-300">
-                    <ArrowRight size={16} strokeWidth={1} />
-                  </Link>
+                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/60 to-transparent">
+                    <h4 className="text-3xl font-light text-white uppercase mb-4">33 Incorp Residence</h4>
+                    <p className="text-white/80 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
+                      Torre residencial contemporânea com foco em design autoral, conforto e valorização patrimonial, em uma localização estratégica de Joinville.
+                    </p>
+                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/30 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
+                      <ArrowRight size={16} strokeWidth={1} />
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
 
             {/* EMPREENDIMENTO 3 - FICTÍCIO (AURORA) */}
-            <motion.div
-              className="group relative border-b border-white/10 cursor-pointer"
-              variants={slideRight}
-              whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(0,0,0,0.35)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
-              whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
-            >
-              <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
-                <Image
-                  src="/imagens/aurora.png"
-                  alt="Aurora Residences"
-                  fill
-                  loading="lazy"
-                  className="object-cover transition-transform duration-[3s] group-hover:scale-105 opacity-50 grayscale"
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                />
-                <div className="absolute inset-0 bg-[#01011c]/85 transition-colors duration-300" />
-                <EmBreveRibbon />
+            <Link href="/empreendimentos/empreendimento-01" className="block h-full">
+              <motion.div
+                className="group relative border-b border-white/10 cursor-pointer h-full"
+                variants={slideRight}
+                whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(0,0,0,0.35)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
+                whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
+              >
+                <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
+                  <Image
+                    src="/imagens/aurora.png"
+                    alt="Aurora Residences"
+                    fill
+                    loading="lazy"
+                    className="object-cover transition-transform duration-[3s] group-hover:scale-105 opacity-50 grayscale"
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                  />
+                  <div className="absolute inset-0 bg-[#01011c]/85 transition-colors duration-300" />
+                  <EmBreveRibbon />
 
-                <div className="absolute bottom-0 left-0 w-full p-6 md:p-8">
-                  <h4 className="text-3xl font-light text-white/50 uppercase mb-4">Aurora<br />Residences</h4>
-                  <p className="text-white/40 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
-                    Design orgânico inspirado nas curvas do litoral. Studios e apartamentos de 1 e 2 dormitórios com rooftop panorâmico e automação residencial completa.
-                  </p>
-                  <Link
-                    href="/empreendimentos/empreendimento-01"
-                    className="inline-flex items-center justify-center w-12 h-12 border border-white/15 text-white/35 hover:bg-white hover:text-[#01011c] transition-all duration-300"
-                  >
-                    <ArrowRight size={16} strokeWidth={1} />
-                  </Link>
+                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8">
+                    <h4 className="text-3xl font-light text-white/50 uppercase mb-4">Aurora<br />Residences</h4>
+                    <p className="text-white/40 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
+                      Design orgânico inspirado nas curvas do litoral. Studios e apartamentos de 1 e 2 dormitórios com rooftop panorâmico e automação residencial completa.
+                    </p>
+                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/15 text-white/35 group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
+                      <ArrowRight size={16} strokeWidth={1} />
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           </motion.div>
         </motion.div>
       </section>
