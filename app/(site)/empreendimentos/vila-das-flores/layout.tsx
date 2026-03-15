@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Vila das Flores | Casas Geminadas | Group 33 incorp.',
     description:
       'Casas geminadas 130 m², 3 quartos, 1 suíte e quintal privativo em Santo Antônio, Joinville - SC.',
-    url: 'https://www.group33incorp.com.br/empreendimentos/vila-das-flores',
+    url: 'https://www.33incorp.com.br/empreendimentos/vila-das-flores',
     images: [
       {
         url: '/og-vila-das-flores.jpg',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     images: ['/og-vila-das-flores.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br/empreendimentos/vila-das-flores',
+    canonical: 'https://www.33incorp.com.br/empreendimentos/vila-das-flores',
   },
 };
 
@@ -43,8 +43,8 @@ const listingSchema = {
   name: 'Vila das Flores',
   description:
     'Casas geminadas de alto padrão em Santo Antônio, Joinville - SC. 130 m², 3 quartos (1 suíte), acabamento premium e quintal privativo.',
-  url: 'https://www.group33incorp.com.br/empreendimentos/vila-das-flores',
-  image: 'https://www.group33incorp.com.br/og-vila-das-flores.jpg',
+  url: 'https://www.33incorp.com.br/empreendimentos/vila-das-flores',
+  image: 'https://www.33incorp.com.br/og-vila-das-flores.jpg',
   floorSize: {
     '@type': 'QuantitativeValue',
     value: 130,
@@ -63,7 +63,7 @@ const listingSchema = {
     seller: {
       '@type': 'RealEstateAgent',
       name: 'Group 33 incorp.',
-      url: 'https://www.group33incorp.com.br',
+      url: 'https://www.33incorp.com.br',
     },
   },
 };
@@ -72,9 +72,9 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.group33incorp.com.br' },
-    { '@type': 'ListItem', position: 2, name: 'Empreendimentos', item: 'https://www.group33incorp.com.br/empreendimentos' },
-    { '@type': 'ListItem', position: 3, name: 'Vila das Flores', item: 'https://www.group33incorp.com.br/empreendimentos/vila-das-flores' },
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.33incorp.com.br' },
+    { '@type': 'ListItem', position: 2, name: 'Empreendimentos', item: 'https://www.33incorp.com.br/empreendimentos' },
+    { '@type': 'ListItem', position: 3, name: 'Vila das Flores', item: 'https://www.33incorp.com.br/empreendimentos/vila-das-flores' },
   ],
 };
 

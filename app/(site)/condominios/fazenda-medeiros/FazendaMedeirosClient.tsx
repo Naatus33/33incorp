@@ -37,6 +37,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import ContactCTA from '@/components/ContactCTA';
+import RelatedListings from '@/components/RelatedListings';
 
 type GalleryImage = {
   src: string;
@@ -703,6 +704,18 @@ export default function FazendaMedeirosClient({
           </motion.div>
         </motion.section>
 
+        <RelatedListings
+          title="Conheça também"
+          items={[
+            { href: '/condominios/quinta-dos-lagos', title: 'Quinta dos Lagos' },
+            { href: '/chales/vale-do-ouro', title: 'Vale do Ouro' },
+            { href: '/condominios/refugio-das-aguas', title: 'Refúgio das Águas' },
+            { href: '/empreendimentos/tauari-residence', title: 'Tauari Residence' },
+            { href: '/empreendimentos/horizon', title: 'Residencial Horizon' },
+            { href: '/condominios', title: 'Todos os Condomínios' },
+            { href: '/empreendimentos', title: 'Empreendimentos' },
+          ]}
+        />
         <ContactCTA
           headline="Quer receber mais informações sobre o Fazenda Medeiros?"
           whatsappMessage="Olá, 33incorp! Tenho interesse em saber mais sobre o Fazenda Medeiros."

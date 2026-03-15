@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Quem Somos | Group 33 incorp.',
     description:
       'Incorporadora dedicada ao desenvolvimento de empreendimentos de alto padrão em Joinville e região. Conheça nossa história, missão e valores.',
-    url: 'https://www.group33incorp.com.br/quem-somos',
+    url: 'https://www.33incorp.com.br/quem-somos',
     images: [
       {
         url: '/og-default.jpg',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     images: ['/og-default.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br/quem-somos',
+    canonical: 'https://www.33incorp.com.br/quem-somos',
   },
 };
 

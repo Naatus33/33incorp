@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Residencial Horizon | Apartamentos Alto Padrão | Group 33 incorp.',
     description:
       'Apartamentos de alto padrão no Centro de Joinville - SC. Vista panorâmica, design autoral e infraestrutura completa de lazer.',
-    url: 'https://www.group33incorp.com.br/empreendimentos/horizon',
+    url: 'https://www.33incorp.com.br/empreendimentos/horizon',
     images: [
       {
         url: '/og-horizon.jpg',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     images: ['/og-horizon.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br/empreendimentos/horizon',
+    canonical: 'https://www.33incorp.com.br/empreendimentos/horizon',
   },
 };
 
@@ -43,8 +43,8 @@ const listingSchema = {
   name: 'Residencial Horizon',
   description:
     'Apartamentos de alto padrão no Centro de Joinville - SC. Vista panorâmica, design autoral e infraestrutura completa de lazer.',
-  url: 'https://www.group33incorp.com.br/empreendimentos/horizon',
-  image: 'https://www.group33incorp.com.br/og-horizon.jpg',
+  url: 'https://www.33incorp.com.br/empreendimentos/horizon',
+  image: 'https://www.33incorp.com.br/og-horizon.jpg',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Joinville',
@@ -57,7 +57,7 @@ const listingSchema = {
     seller: {
       '@type': 'RealEstateAgent',
       name: 'Group 33 incorp.',
-      url: 'https://www.group33incorp.com.br',
+      url: 'https://www.33incorp.com.br',
     },
   },
 };
@@ -66,9 +66,9 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.group33incorp.com.br' },
-    { '@type': 'ListItem', position: 2, name: 'Empreendimentos', item: 'https://www.group33incorp.com.br/empreendimentos' },
-    { '@type': 'ListItem', position: 3, name: 'Residencial Horizon', item: 'https://www.group33incorp.com.br/empreendimentos/horizon' },
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.33incorp.com.br' },
+    { '@type': 'ListItem', position: 2, name: 'Empreendimentos', item: 'https://www.33incorp.com.br/empreendimentos' },
+    { '@type': 'ListItem', position: 3, name: 'Residencial Horizon', item: 'https://www.33incorp.com.br/empreendimentos/horizon' },
   ],
 };
 

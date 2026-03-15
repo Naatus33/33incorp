@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Facebook } from 'lucide-react';
-import { CONTACT_EMAIL, CONTACT_ADDRESS, PHONE_DISPLAY, WHATSAPP_NUMBER, SOCIAL_INSTAGRAM, SOCIAL_FACEBOOK } from '@/lib/constants/contact';
+import { CONTACT_ADDRESS, PHONE_DISPLAY, WHATSAPP_NUMBER, SOCIAL_INSTAGRAM, SOCIAL_FACEBOOK } from '@/lib/constants/contact';
+import ClientEmailLink from '@/components/ClientEmailLink';
 
 export default function Footer() {
   return (
@@ -17,7 +18,7 @@ export default function Footer() {
             <div className="relative w-[140px] h-[200px] min-w-[100px] min-h-[150px] shrink-0 flex-shrink-0">
               <Image
                 src="/logo.png"
-                alt="33 Incorp Construtora & Incorporadora"
+                alt="Group 33 incorp. — Logo da incorporadora de imóveis de alto padrão em Joinville"
                 fill
                 className="object-contain object-left"
                 sizes="140px"
@@ -61,12 +62,7 @@ export default function Footer() {
             <span className="uppercase tracking-[0.28em] text-[0.7rem] md:text-[0.75rem] mb-2 text-white/80">
               Contato
             </span>
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="hover:text-white transition-colors normal-case tracking-normal"
-            >
-              {CONTACT_EMAIL}
-            </a>
+            <ClientEmailLink className="hover:text-white transition-colors normal-case tracking-normal" />
             <a
               href={`tel:${WHATSAPP_NUMBER}`}
               className="hover:text-white transition-colors normal-case tracking-normal"

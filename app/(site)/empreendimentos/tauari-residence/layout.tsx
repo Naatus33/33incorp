@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Tauari Residence | Alto Padrão | Group 33 incorp.',
     description:
       'Residencial de alto padrão com unidades espaçosas, acabamento sofisticado e área de lazer completa em Joinville - SC.',
-    url: 'https://www.group33incorp.com.br/empreendimentos/tauari-residence',
+    url: 'https://www.33incorp.com.br/empreendimentos/tauari-residence',
     images: [
       {
         url: '/og-tauari-residence.jpg',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     images: ['/og-tauari-residence.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br/empreendimentos/tauari-residence',
+    canonical: 'https://www.33incorp.com.br/empreendimentos/tauari-residence',
   },
 };
 
@@ -43,8 +43,8 @@ const listingSchema = {
   name: 'Tauari Residence',
   description:
     'Residencial de alto padrão com unidades espaçosas, acabamento sofisticado e área de lazer completa em Joinville - SC.',
-  url: 'https://www.group33incorp.com.br/empreendimentos/tauari-residence',
-  image: 'https://www.group33incorp.com.br/og-tauari-residence.jpg',
+  url: 'https://www.33incorp.com.br/empreendimentos/tauari-residence',
+  image: 'https://www.33incorp.com.br/og-tauari-residence.jpg',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Joinville',
@@ -57,7 +57,7 @@ const listingSchema = {
     seller: {
       '@type': 'RealEstateAgent',
       name: 'Group 33 incorp.',
-      url: 'https://www.group33incorp.com.br',
+      url: 'https://www.33incorp.com.br',
     },
   },
 };
@@ -66,9 +66,9 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.group33incorp.com.br' },
-    { '@type': 'ListItem', position: 2, name: 'Empreendimentos', item: 'https://www.group33incorp.com.br/empreendimentos' },
-    { '@type': 'ListItem', position: 3, name: 'Tauari Residence', item: 'https://www.group33incorp.com.br/empreendimentos/tauari-residence' },
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.33incorp.com.br' },
+    { '@type': 'ListItem', position: 2, name: 'Empreendimentos', item: 'https://www.33incorp.com.br/empreendimentos' },
+    { '@type': 'ListItem', position: 3, name: 'Tauari Residence', item: 'https://www.33incorp.com.br/empreendimentos/tauari-residence' },
   ],
 };
 

@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Termos de Uso | Group 33 incorp.',
-  description: 'Termos de uso do site e dos serviços da Group 33 incorp.',
+  title: {
+    absolute: 'Termos de Uso | Group 33 incorp.',
+  },
+  description: 'Termos de uso do site e dos serviços da Group 33 incorp. Condições gerais de acesso, utilização do conteúdo e políticas aplicáveis aos visitantes e clientes.',
 };
 
 export default function TermosPage() {

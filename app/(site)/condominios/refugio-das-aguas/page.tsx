@@ -18,6 +18,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: 'https://www.33incorp.com.br/condominios/refugio-das-aguas',
+  },
 };
 
 export default function RefugioDasAguasPage() {
@@ -25,8 +28,8 @@ export default function RefugioDasAguasPage() {
     <ComingSoonPage
       eyebrow="Coleção Exclusiva"
       title="Refúgio das Águas"
-      description="Um novo conceito de condomínio horizontal está sendo preparado pela Group 33 incorp. Paisagismo envolvido por água, áreas de convivência e lazer pensadas para quem busca tranquilidade, conforto e valorização patrimonial em longo prazo."
-      secondaryText="Este empreendimento encontra-se em fase de estudos e concepção. Enquanto isso, você pode conhecer os outros condomínios em lançamento e falar com a nossa equipe para ser avisado em primeira mão sobre as próximas etapas."
+      description="O Refúgio das Águas será um condomínio horizontal de alto padrão desenvolvido pela Group 33 incorp., com um conceito que integra paisagismo e água: lagos, espelhos d’água e áreas de convivência pensadas para quem busca tranquilidade, conforto e valorização patrimonial em longo prazo. A proposta une infraestrutura completa de lazer, segurança e um desenho urbano que valoriza o contato com a natureza, no mesmo nível de excelência da Fazenda Medeiros e da Quinta dos Lagos."
+      secondaryText="Este empreendimento encontra-se em fase de estudos e concepção. Enquanto isso, você pode conhecer a Fazenda Medeiros, a Quinta dos Lagos e o Vale do Ouro — nossos condomínios e chalés já em destaque — e falar com a nossa equipe para ser avisado em primeira mão sobre o lançamento do Refúgio das Águas."
       primaryCtaHref="/condominios"
       primaryCtaLabel="Ver outros condomínios"
       secondaryCtaHref="#contato"

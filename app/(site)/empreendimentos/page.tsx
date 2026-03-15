@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Empreendimentos | Group 33 incorp.',
     description:
       'Tauari Residence, Residencial Horizon, Vila das Flores e Aurora Residences. Projetos verticais e geminados de alto padrão em Joinville - SC.',
-    url: 'https://www.group33incorp.com.br/empreendimentos',
+    url: 'https://www.33incorp.com.br/empreendimentos',
     images: [
       {
         url: '/og-default.jpg',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: ['/og-default.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br/empreendimentos',
+    canonical: 'https://www.33incorp.com.br/empreendimentos',
   },
 };
 
@@ -42,7 +42,7 @@ const listings: ListingCardProps[] = [
   {
     href: '/empreendimentos/tauari-residence',
     imageSrc: '/imagens/tauari.png',
-    imageAlt: 'Tauari Residence',
+    imageAlt: 'Tauari Residence — Residencial de alto padrão em Joinville, Bairro Atiradores',
     title: 'Tauari Residence',
     subtitle: 'Joinville - SC',
     description:
@@ -51,8 +51,8 @@ const listings: ListingCardProps[] = [
   {
     href: '/empreendimentos/horizon',
     imageSrc: '/novoempre.jpeg',
-    imageAlt: '33 Incorp Residence',
-    title: '33 Incorp Residence',
+    imageAlt: 'Residencial Horizon — Empreendimento de alto padrão no Centro de Joinville',
+    title: 'Residencial Horizon',
     subtitle: 'Centro, Joinville - SC',
     description:
       'Empreendimento vertical contemporâneo, com lazer completo e plantas inteligentes pensadas para morar e investir no coração de Joinville.',
@@ -62,7 +62,7 @@ const listings: ListingCardProps[] = [
   {
     href: '/empreendimentos/empreendimento-01',
     imageSrc: '/imagens/aurora.png',
-    imageAlt: 'Aurora Residences',
+    imageAlt: 'Aurora Residences — Empreendimento em desenvolvimento com design orgânico e rooftop',
     title: 'Aurora Residences',
     subtitle: 'Joinville - SC',
     description:
@@ -79,6 +79,7 @@ export default function EmpreendimentosPage() {
         <SectionHeader
           eyebrow="Conceito Vertical"
           title="Empreendimentos"
+          asH1
         />
         <p className="text-gray-700 font-light text-base md:text-lg mt-4 mb-10 md:mb-14 max-w-2xl">
           Projetos verticais e casas geminadas com design autoral, localizações privilegiadas e acabamento premium.

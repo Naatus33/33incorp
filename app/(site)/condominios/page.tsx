@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Condomínios | Group 33 incorp.',
     description:
       'Condomínios fechados de alto padrão: Fazenda Medeiros, Quinta dos Lagos e Vale do Ouro. Lotes exclusivos em Joinville e região.',
-    url: 'https://www.group33incorp.com.br/condominios',
+    url: 'https://www.33incorp.com.br/condominios',
     images: [
       {
         url: '/og-default.jpg',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     images: ['/og-default.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br/condominios',
+    canonical: 'https://www.33incorp.com.br/condominios',
   },
 };
 
@@ -42,7 +42,7 @@ const condos = [
   {
     href: '/condominios/fazenda-medeiros',
     imageSrc: '/imagens/fazenda/1.jpg',
-    imageAlt: 'Fazenda Medeiros',
+    imageAlt: 'Fazenda Medeiros — Condomínio de lotes na Estrada Geral de Medeiros, Joinville',
     title: 'Fazenda Medeiros',
     subtitle: 'Estrada Geral de Medeiros',
     description:
@@ -52,7 +52,7 @@ const condos = [
   {
     href: '/condominios/quinta-dos-lagos',
     imageSrc: '/imagens/quinta-dos-lagos.png',
-    imageAlt: 'Condomínio Quinta dos Lagos',
+    imageAlt: 'Quinta dos Lagos — Condomínio fechado com lagos privativos em Joinville',
     title: 'Condomínio Quinta dos Lagos',
     subtitle: '[Cidade / Estado]',
     description:
@@ -61,7 +61,7 @@ const condos = [
   {
     href: '/chales/vale-do-ouro',
     imageSrc: '/imagens/vale-do-ouro.png',
-    imageAlt: 'Vale do Ouro',
+    imageAlt: 'Vale do Ouro — Chalés de alto padrão com cachoeiras privativas e rentabilidade',
     title: 'Vale do Ouro',
     subtitle: 'Natureza e cachoeiras',
     description:
@@ -76,6 +76,7 @@ export default function CondominiosPage() {
         <SectionHeader
           eyebrow="Coleção Exclusiva"
           title="Condomínios & Geminados"
+          asH1
         />
         <p className="text-gray-500 font-light text-base md:text-lg mt-4 mb-10 md:mb-14 max-w-2xl">
           Conheça os produtos horizontais do portfólio Group 33: condomínios fechados e geminados planejados para oferecer segurança, conforto e uma experiência de viver com padrão diferenciado.

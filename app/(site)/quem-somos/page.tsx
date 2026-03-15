@@ -112,7 +112,7 @@ export default function QuemSomosPage() {
             >
               <Image
                 src="/imagens/incorp.png"
-                alt="33 Incorporadora - empreendimentos de alto padrão"
+                alt="Group 33 incorp. — Incorporadora de empreendimentos de alto padrão em Joinville e região"
                 fill
                 className="object-cover"
                 sizes="(min-width: 1024px) 40vw, 100vw"
@@ -237,7 +237,7 @@ export default function QuemSomosPage() {
               <div className="relative w-32 h-40 sm:w-40 sm:h-52 rounded-3xl overflow-hidden bg-gray-100 flex-shrink-0 border border-gray-200">
                 <Image
                   src="/imagens/talles.png"
-                  alt="Talles Reis, CEO da 33 Incorporadora"
+                  alt="Talles Reis — CEO da Group 33 incorp."
                   fill
                   className="object-cover"
                   sizes="(min-width: 768px) 160px, 128px"
@@ -265,7 +265,7 @@ export default function QuemSomosPage() {
                 <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 mb-4">
                   <Image
                     src="/regina.jpeg"
-                    alt="Regina Silva"
+                    alt="Regina Silva — Liderança da Group 33 incorp."
                     fill
                     className="object-cover"
                     sizes="128px"
@@ -283,7 +283,7 @@ export default function QuemSomosPage() {
                 <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 mb-4">
                   <Image
                     src="/gabriel.jpeg"
-                    alt="Gabriel Yarokamoto"
+                    alt="Gabriel Yarokamoto — Liderança da Group 33 incorp."
                     fill
                     className="object-cover object-top"
                     sizes="128px"
@@ -301,7 +301,7 @@ export default function QuemSomosPage() {
                 <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 mb-4">
                   <Image
                     src="/paulo.jpeg"
-                    alt="Paulo J. Freitas"
+                    alt="Paulo J. Freitas — Liderança da Group 33 incorp."
                     fill
                     className="object-cover"
                     sizes="128px"

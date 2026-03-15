@@ -5,6 +5,8 @@ type SectionHeaderProps = {
   title: ReactNode;
   align?: 'left' | 'center';
   theme?: 'light' | 'dark';
+  /** When true, uses h1 for the title (for SEO on listing pages). Default false (h2). */
+  asH1?: boolean;
 };
 
 export default function SectionHeader({
@@ -12,6 +14,7 @@ export default function SectionHeader({
   title,
   align = 'left',
   theme = 'light',
+  asH1 = false,
 }: SectionHeaderProps) {
   const baseEyebrow =
     theme === 'light'
@@ -35,11 +38,19 @@ export default function SectionHeader({
       >
         {eyebrow}
       </p>
-      <h2
-        className={`${baseTitle} text-3xl md:text-5xl lg:text-6xl font-light tracking-tight uppercase`}
-      >
-        {title}
-      </h2>
+      {asH1 ? (
+        <h1
+          className={`${baseTitle} text-3xl md:text-5xl lg:text-6xl font-light tracking-tight uppercase`}
+        >
+          {title}
+        </h1>
+      ) : (
+        <h2
+          className={`${baseTitle} text-3xl md:text-5xl lg:text-6xl font-light tracking-tight uppercase`}
+        >
+          {title}
+        </h2>
+      )}
     </div>
   );
 }

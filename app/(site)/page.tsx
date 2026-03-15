@@ -88,102 +88,15 @@ const SoldRibbon = () => (
   </div>
 );
 
-type HeroFadePhase = 'visible' | 'fadingOut' | 'fadingIn';
-
-const HERO_FADE_OUT_START = 1.2; // segundos antes do fim para iniciar fade out
-const HERO_FADE_IN_DURATION = 600; // ms
-const HERO_MIN_OPACITY = 0.2;
-const HERO_FADE_SAFETY_TIMEOUT = 4000; // ms
-
 export default function HomePage() {
   const [heroVideoError, setHeroVideoError] = useState(false);
   const [shouldShowVideo, setShouldShowVideo] = useState(false);
-  const [heroFadePhase, setHeroFadePhase] = useState<HeroFadePhase>('visible');
   const heroVideoRef = useRef<HTMLVideoElement>(null);
-  const wasNearEndRef = useRef(false);
-  const fadeInTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const fadeSafetyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
-    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-    if (!isDesktop) {
-      setShouldShowVideo(false);
-      return;
-    }
-
-    const connection = (navigator as any).connection;
-    const isSlowConnection =
-      connection &&
-      (connection.effectiveType === '2g' ||
-        connection.effectiveType === 'slow-2g');
-
-    if (isSlowConnection) {
-      setShouldShowVideo(false);
-      return;
-    }
-
+    // Tenta sempre mostrar o vídeo; o navegador decide se consegue autoplay.
     setShouldShowVideo(true);
-  }, []);
-
-  const onHeroTimeUpdate = () => {
-    const video = heroVideoRef.current;
-    if (!video || !Number.isFinite(video.duration)) return;
-
-    const { currentTime, duration } = video;
-
-    if (currentTime >= duration - HERO_FADE_OUT_START) {
-      wasNearEndRef.current = true;
-      setHeroFadePhase('fadingOut');
-
-      if (fadeInTimeoutRef.current) {
-        clearTimeout(fadeInTimeoutRef.current);
-        fadeInTimeoutRef.current = null;
-      }
-      if (fadeSafetyTimeoutRef.current) {
-        clearTimeout(fadeSafetyTimeoutRef.current);
-        fadeSafetyTimeoutRef.current = null;
-      }
-
-      fadeSafetyTimeoutRef.current = setTimeout(() => {
-        setHeroFadePhase('visible');
-        wasNearEndRef.current = false;
-        fadeSafetyTimeoutRef.current = null;
-      }, HERO_FADE_SAFETY_TIMEOUT);
-
-      return;
-    }
-
-    if (wasNearEndRef.current && currentTime < 0.4) {
-      wasNearEndRef.current = false;
-      setHeroFadePhase('fadingIn');
-
-      if (fadeSafetyTimeoutRef.current) {
-        clearTimeout(fadeSafetyTimeoutRef.current);
-        fadeSafetyTimeoutRef.current = null;
-      }
-
-      if (fadeInTimeoutRef.current) {
-        clearTimeout(fadeInTimeoutRef.current);
-      }
-
-      fadeInTimeoutRef.current = setTimeout(() => {
-        setHeroFadePhase('visible');
-        fadeInTimeoutRef.current = null;
-      }, HERO_FADE_IN_DURATION);
-    }
-  };
-
-  useEffect(() => {
-    return () => {
-      if (fadeInTimeoutRef.current) {
-        clearTimeout(fadeInTimeoutRef.current);
-      }
-      if (fadeSafetyTimeoutRef.current) {
-        clearTimeout(fadeSafetyTimeoutRef.current);
-      }
-    };
   }, []);
 
   return (
@@ -194,35 +107,18 @@ export default function HomePage() {
         {/* Background Video/Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           {shouldShowVideo && !heroVideoError ? (
-            <div
-              className="absolute inset-0 transition-opacity duration-[1200ms] ease-out"
-              style={{
-                opacity:
-                  heroFadePhase === 'fadingOut'
-                    ? HERO_MIN_OPACITY
-                    : 1,
-                transitionDuration:
-                  heroFadePhase === 'fadingOut'
-                    ? '1200ms'
-                    : heroFadePhase === 'fadingIn'
-                      ? `${HERO_FADE_IN_DURATION}ms`
-                      : undefined,
-                transitionTimingFunction:
-                  heroFadePhase === 'fadingIn' ? 'ease-in' : 'ease-out',
-              }}
-            >
+            <div className="absolute inset-0">
               <video
                 ref={heroVideoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="auto"
                 poster="/fazenda-medeiros-hero-bg.png"
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ objectPosition: 'center 70%' }}
                 onError={() => setHeroVideoError(true)}
-                onTimeUpdate={onHeroTimeUpdate}
               >
                 <source src="/fazenda-medeiros-hero.mp4" type="video/mp4" />
               </video>
@@ -501,7 +397,7 @@ export default function HomePage() {
                   },
                   {
                     name: "Daxo",
-                    logo: "/parceiros/daxo.png",
+                    logo: "/parceiros/daxo.webp",
                     url: "https://www.daxo.com.br/",
                   },
                   {
@@ -624,7 +520,7 @@ export default function HomePage() {
                 <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
                   <Image
                     src="/novoempre.jpeg"
-                    alt="33 Incorp Residence"
+                    alt="Residencial Horizon — Empreendimento de alto padrão no Centro de Joinville"
                     fill
                     loading="lazy"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -634,7 +530,7 @@ export default function HomePage() {
                   <EmBreveRibbon />
 
                   <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/60 to-transparent">
-                    <h4 className="text-3xl font-light text-white uppercase mb-4">33 Incorp Residence</h4>
+                    <h4 className="text-3xl font-light text-white uppercase mb-4">Residencial Horizon</h4>
                     <p className="text-white/80 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
                       Torre residencial contemporânea com foco em design autoral, conforto e valorização patrimonial, em uma localização estratégica de Joinville.
                     </p>
@@ -722,7 +618,7 @@ export default function HomePage() {
                 <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-100">
                   <Image
                     src="/imagens/bomretiro.png"
-                    alt="Bom Retiro"
+                    alt="Bom Retiro — Geminados de alto padrão 100% vendidos em Joinville"
                     fill
                     loading="lazy"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -753,7 +649,7 @@ export default function HomePage() {
                 <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-100">
                   <Image
                     src="/imagens/saguacu.png"
-                    alt="Saguaçu"
+                    alt="Saguaçu — Geminados de alto padrão 100% vendidos em Joinville"
                     fill
                     loading="lazy"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -784,7 +680,7 @@ export default function HomePage() {
                 <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-100">
                   <Image
                     src="/imagens/gloria%20-%20Copia.png"
-                    alt="Glória"
+                    alt="Glória — Geminados de alto padrão 100% vendidos em Joinville"
                     fill
                     loading="lazy"
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"

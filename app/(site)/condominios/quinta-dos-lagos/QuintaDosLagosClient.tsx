@@ -47,6 +47,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import ContactCTA from '@/components/ContactCTA';
+import RelatedListings from '@/components/RelatedListings';
 
 type GalleryImage = {
   src: string;
@@ -725,6 +726,18 @@ export default function QuintaDosLagosClient({
           </motion.div>
         </motion.section>
 
+        <RelatedListings
+          title="Conheça também"
+          items={[
+            { href: '/condominios/fazenda-medeiros', title: 'Fazenda Medeiros' },
+            { href: '/chales/vale-do-ouro', title: 'Vale do Ouro' },
+            { href: '/condominios/refugio-das-aguas', title: 'Refúgio das Águas' },
+            { href: '/empreendimentos/tauari-residence', title: 'Tauari Residence' },
+            { href: '/empreendimentos/horizon', title: 'Residencial Horizon' },
+            { href: '/condominios', title: 'Todos os Condomínios' },
+            { href: '/empreendimentos', title: 'Empreendimentos' },
+          ]}
+        />
         <ContactCTA
           headline="Quer receber mais informações sobre o Quinta dos Lagos?"
           whatsappMessage="Olá, 33incorp! Tenho interesse em saber mais sobre o Quinta dos Lagos."

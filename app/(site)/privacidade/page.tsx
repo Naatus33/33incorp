@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Política de Privacidade | Group 33 incorp.',
-  description: 'Política de privacidade e proteção de dados da Group 33 incorp.',
+  title: {
+    absolute: 'Política de Privacidade | Group 33 incorp.',
+  },
+  description: 'Política de privacidade e proteção de dados da Group 33 incorp. Saiba como coletamos, usamos, armazenamos e protegemos suas informações pessoais.',
 };
 
 export default function PrivacidadePage() {

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     description:
       'Empreendimento Aurora Residences em desenvolvimento. Conheça outros projetos e cadastre-se para receber informações em primeira mão.',
   },
+  alternates: {
+    canonical: 'https://www.33incorp.com.br/empreendimentos/empreendimento-01',
+  },
 };
 
 export default function Empreendimento01Page() {
@@ -18,8 +21,8 @@ export default function Empreendimento01Page() {
       eyebrow="Conceito Vertical"
       title="Aurora"
       highlight="Residences"
-      description="Design orgânico inspirado nas curvas do litoral. Studios e apartamentos de 1 e 2 dormitórios com rooftop panorâmico e automação residencial completa."
-      secondaryText="Este empreendimento está em fase de concepção. Enquanto isso, você pode conhecer nossos outros projetos e falar com a equipe para ser avisado em primeira mão."
+      description="O Aurora Residences será um empreendimento de alto padrão com design orgânico inspirado nas curvas do litoral catarinense. O projeto prevê studios e apartamentos de 1 e 2 dormitórios, rooftop panorâmico e automação residencial completa, pensados para quem busca praticidade, conforto e valorização. A Group 33 incorp. está desenvolvendo cada detalhe para entregar um produto com a mesma qualidade dos nossos lançamentos em Joinville."
+      secondaryText="Este empreendimento está em fase de concepção e estudos. Enquanto isso, você pode conhecer o Tauari Residence, o Residencial Horizon e os demais projetos da nossa carteira, além de falar com a equipe para ser avisado em primeira mão sobre o lançamento do Aurora Residences."
       primaryCtaHref="/empreendimentos"
       primaryCtaLabel="Ver todos os Empreendimentos"
       secondaryCtaHref="/#contato"

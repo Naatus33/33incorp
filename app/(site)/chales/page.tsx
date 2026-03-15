@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'Chalés | Group 33 incorp.',
     description:
       'Chalés de alto padrão para investimento com rentabilidade líquida de 11,65% ao ano e gestão completa. Conheça o Vale do Ouro.',
-    url: 'https://www.group33incorp.com.br/chales',
+    url: 'https://www.33incorp.com.br/chales',
     images: [
       {
         url: '/og-default.jpg',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     images: ['/og-default.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br/chales',
+    canonical: 'https://www.33incorp.com.br/chales',
   },
 };
 
@@ -55,7 +55,7 @@ export default function ChalesPage() {
           <ListingCard
             href="/chales/vale-do-ouro"
             imageSrc="/imagens/chale.png"
-            imageAlt="Vale do Ouro"
+            imageAlt="Vale do Ouro — Chalés com rentabilidade e gestão completa para locação por temporada"
             title="Vale do Ouro"
             subtitle="Natureza & Rentabilidade"
             description="Rentabilidade líquida de 11,65% ao ano. Cabanas modernas integradas à natureza com cachoeiras privativas."
@@ -64,7 +64,7 @@ export default function ChalesPage() {
           <ListingCard
             href="/chales/chale-01"
             imageSrc="https://picsum.photos/seed/chale01/800/600"
-            imageAlt="Chalé 01"
+            imageAlt="Chalé 01 — Empreendimento em breve pela Group 33 incorp."
             comingSoon
             title="Chalé 01"
             subtitle="Região / Cidade"
@@ -74,7 +74,7 @@ export default function ChalesPage() {
           <ListingCard
             href="/chales/chale-02"
             imageSrc="https://picsum.photos/seed/chale02/800/600"
-            imageAlt="Chalé 02"
+            imageAlt="Chalé 02 — Empreendimento em breve pela Group 33 incorp."
             comingSoon
             title="Chalé 02"
             subtitle="Região / Cidade"

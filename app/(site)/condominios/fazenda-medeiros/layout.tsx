@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: 'Fazenda Medeiros | Condomínio de Lotes | Group 33 incorp.',
     description:
       '321 lotes de 400 a 700 m², a 8 minutos da praia. Mais de 32 mil m² de área de lazer exclusiva.',
-    url: 'https://www.group33incorp.com.br/condominios/fazenda-medeiros',
+    url: 'https://www.33incorp.com.br/condominios/fazenda-medeiros',
     images: [
       {
         url: '/og-fazenda-medeiros.jpg',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     images: ['/og-fazenda-medeiros.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br/condominios/fazenda-medeiros',
+    canonical: 'https://www.33incorp.com.br/condominios/fazenda-medeiros',
   },
 };
 
@@ -43,8 +43,8 @@ const listingSchema = {
   name: 'Fazenda Medeiros',
   description:
     'Condomínio de lotes residenciais na Estrada Geral de Medeiros. 321 lotes de 400 a 700 m², a 8 minutos da praia, com mais de 32 mil m² de área de lazer.',
-  url: 'https://www.group33incorp.com.br/condominios/fazenda-medeiros',
-  image: 'https://www.group33incorp.com.br/og-fazenda-medeiros.jpg',
+  url: 'https://www.33incorp.com.br/condominios/fazenda-medeiros',
+  image: 'https://www.33incorp.com.br/og-fazenda-medeiros.jpg',
   numberOfRooms: 321,
   floorSize: {
     '@type': 'QuantitativeValue',
@@ -65,7 +65,7 @@ const listingSchema = {
     seller: {
       '@type': 'RealEstateAgent',
       name: 'Group 33 incorp.',
-      url: 'https://www.group33incorp.com.br',
+      url: 'https://www.33incorp.com.br',
     },
   },
 };
@@ -74,9 +74,9 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.group33incorp.com.br' },
-    { '@type': 'ListItem', position: 2, name: 'Condomínios', item: 'https://www.group33incorp.com.br/condominios' },
-    { '@type': 'ListItem', position: 3, name: 'Fazenda Medeiros', item: 'https://www.group33incorp.com.br/condominios/fazenda-medeiros' },
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.33incorp.com.br' },
+    { '@type': 'ListItem', position: 2, name: 'Condomínios', item: 'https://www.33incorp.com.br/condominios' },
+    { '@type': 'ListItem', position: 3, name: 'Fazenda Medeiros', item: 'https://www.33incorp.com.br/condominios/fazenda-medeiros' },
   ],
 };
 

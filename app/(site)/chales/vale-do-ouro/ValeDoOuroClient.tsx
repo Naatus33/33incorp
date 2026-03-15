@@ -25,6 +25,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import ContactCTA from '@/components/ContactCTA';
+import RelatedListings from '@/components/RelatedListings';
 
 type GalleryImage = {
   src: string;
@@ -637,6 +638,18 @@ export default function ValeDoOuroClient({
           </motion.p>
         </motion.section>
 
+        <RelatedListings
+          title="Conheça também"
+          items={[
+            { href: '/condominios/fazenda-medeiros', title: 'Fazenda Medeiros' },
+            { href: '/condominios/quinta-dos-lagos', title: 'Quinta dos Lagos' },
+            { href: '/condominios/refugio-das-aguas', title: 'Refúgio das Águas' },
+            { href: '/empreendimentos/tauari-residence', title: 'Tauari Residence' },
+            { href: '/empreendimentos/horizon', title: 'Residencial Horizon' },
+            { href: '/chales', title: 'Todos os Chalés' },
+            { href: '/condominios', title: 'Condomínios' },
+          ]}
+        />
         <ContactCTA
           headline="Quer receber mais informações sobre o Vale do Ouro?"
           whatsappMessage="Olá, 33incorp! Tenho interesse em saber mais sobre o Vale do Ouro (chalés)."

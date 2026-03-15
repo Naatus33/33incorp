@@ -18,10 +18,12 @@ const outfit = Outfit({
   weight: ['500', '600', '700'],
 });
 
+const SITE_URL = 'https://www.33incorp.com.br';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.group33incorp.com.br'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Group 33 incorp. | Imóveis de Alto Padrão',
+    default: 'Imóveis de Alto Padrão em Joinville | Group 33 incorp.',
     template: '%s | Group 33 incorp.',
   },
   description: 'Empreendimentos, lotes e geminados de alto padrão em Joinville e região. Design, sofisticação e qualidade de vida.',
@@ -35,9 +37,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pt_BR',
-    url: 'https://www.group33incorp.com.br',
+    url: SITE_URL,
     siteName: 'Group 33 incorp.',
-    title: 'Group 33 incorp. | Imóveis de Alto Padrão',
+    title: 'Imóveis de Alto Padrão em Joinville | Group 33 incorp.',
     description: 'Empreendimentos, lotes e geminados de alto padrão em Joinville e região. Design, sofisticação e qualidade de vida.',
     images: [
       {
@@ -50,12 +52,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Group 33 incorp. | Imóveis de Alto Padrão',
+    title: 'Imóveis de Alto Padrão em Joinville | Group 33 incorp.',
     description: 'Empreendimentos, lotes e geminados de alto padrão em Joinville e região.',
     images: ['/og-default.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br',
+    canonical: SITE_URL,
   },
   robots: {
     index: true,
@@ -74,8 +76,8 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'RealEstateAgent',
   name: 'Group 33 incorp.',
-  url: 'https://www.group33incorp.com.br',
-  logo: 'https://www.group33incorp.com.br/icon.svg',
+  url: SITE_URL,
+  logo: `${SITE_URL}/icon.svg`,
   description: 'Empreendimentos, lotes e geminados de alto padrão em Joinville e região.',
   address: {
     '@type': 'PostalAddress',

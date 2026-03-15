@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Geminados | Group 33 incorp.',
     description:
       'Casas geminadas de alto padrão em Joinville - SC. Acabamento sofisticado e localização estratégica.',
-    url: 'https://www.group33incorp.com.br/geminado',
+    url: 'https://www.33incorp.com.br/geminado',
     images: [
       {
         url: '/og-default.jpg',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     images: ['/og-default.jpg'],
   },
   alternates: {
-    canonical: 'https://www.group33incorp.com.br/geminado',
+    canonical: 'https://www.33incorp.com.br/geminado',
   },
 };
 
