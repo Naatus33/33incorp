@@ -5,6 +5,9 @@ export const metadata: Metadata = {
     absolute: 'Política de Privacidade | Group 33 incorp.',
   },
   description: 'Política de privacidade e proteção de dados da Group 33 incorp. Saiba como coletamos, usamos, armazenamos e protegemos suas informações pessoais.',
+  alternates: {
+    canonical: 'https://www.33incorp.com.br/privacidade',
+  },
 };
 
 export default function PrivacidadePage() {

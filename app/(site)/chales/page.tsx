@@ -46,6 +46,7 @@ export default function ChalesPage() {
         <SectionHeader
           eyebrow="Coleção Exclusiva"
           title="Chalés"
+          asH1
         />
         <p className="text-gray-500 font-light text-base md:text-lg mt-4 mb-12 md:mb-16 max-w-2xl">
           Invista em chalés de alto padrão com gestão completa para locação por temporada e alta rentabilidade.
@@ -54,7 +55,7 @@ export default function ChalesPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <ListingCard
             href="/chales/vale-do-ouro"
-            imageSrc="/imagens/chale.png"
+            imageSrc="/imagens/vale-do-ouro.png"
             imageAlt="Vale do Ouro — Chalés com rentabilidade e gestão completa para locação por temporada"
             title="Vale do Ouro"
             subtitle="Natureza & Rentabilidade"

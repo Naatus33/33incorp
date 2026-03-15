@@ -5,6 +5,9 @@ export const metadata: Metadata = {
     absolute: 'Termos de Uso | Group 33 incorp.',
   },
   description: 'Termos de uso do site e dos serviços da Group 33 incorp. Condições gerais de acesso, utilização do conteúdo e políticas aplicáveis aos visitantes e clientes.',
+  alternates: {
+    canonical: 'https://www.33incorp.com.br/termos',
+  },
 };
 
 export default function TermosPage() {
