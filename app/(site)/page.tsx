@@ -85,7 +85,7 @@ export default function HomePage() {
   return (
     <main className="w-full bg-[#01011c] text-white font-sans selection:bg-white selection:text-[#01011c]">
       {/* 1. HERO SECTION - TRUE FULLSCREEN */}
-      <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-20 md:py-24 lg:py-32" aria-label="Hero">
+      <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-16 pt-48 pb-16 sm:pt-44 sm:pb-20 md:pt-48 md:pb-24 lg:pt-40 lg:pb-32" aria-label="Hero">
         {/* Background Video/Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           {shouldShowVideo && !heroVideoError ? (
@@ -145,7 +145,7 @@ export default function HomePage() {
             
             <motion.p 
               variants={fadeIn} 
-              className="text-white/80 font-light leading-relaxed text-sm sm:text-base md:text-lg max-w-2xl break-words"
+              className="text-white/80 font-light leading-relaxed text-sm sm:text-base md:text-lg max-w-3xl"
             >
               Onde a imensidão do mar encontra a alma do campo – um novo jeito de viver.
             </motion.p>

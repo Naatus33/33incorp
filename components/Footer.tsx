@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
-import { ClientEmailLink } from '@/components/ClientEmailLink';
+import ClientEmailLink from '@/components/ClientEmailLink';
 import { CONTACT_EMAIL, CONTACT_ADDRESS, SOCIAL_INSTAGRAM, SOCIAL_FACEBOOK, PHONE_DISPLAY } from '@/lib/constants/contact';
 
 export default function Footer() {
