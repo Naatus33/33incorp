@@ -17,7 +17,6 @@ const fadeIn: Variants = {
   },
 };
 
-// Cards: entrada lateral para dar ênfase — 1º da esquerda, 2º centro em destaque, 3º da direita
 const cardFromLeft: Variants = {
   hidden: { opacity: 0, x: -72 },
   visible: {
@@ -36,7 +35,6 @@ const cardFromRight: Variants = {
   },
 };
 
-// Card do centro: sobe levemente + escala para destaque
 const cardCenter: Variants = {
   hidden: { opacity: 0, y: 48, scale: 0.96 },
   visible: {
@@ -47,11 +45,9 @@ const cardCenter: Variants = {
   },
 };
 
-// Compatibilidade com uso antigo (mapear para as novas)
 const slideLeft = cardFromLeft;
 const slideRight = cardFromRight;
 const scaleIn = cardCenter;
-
 
 const titleReveal: Variants = {
   hidden: { opacity: 0, y: 36 },
@@ -76,18 +72,6 @@ const staggerFast: Variants = {
   },
 };
 
-const EmBreveRibbon = () => (
-  <div className="absolute left-0 top-6 z-20">
-    <LuxuryTag variant="gold" verticalLeft>Em Breve</LuxuryTag>
-  </div>
-);
-
-const SoldRibbon = () => (
-  <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20 flex justify-center">
-    <LuxuryTag variant="bronze">100% Vendido</LuxuryTag>
-  </div>
-);
-
 export default function HomePage() {
   const [heroVideoError, setHeroVideoError] = useState(false);
   const [shouldShowVideo, setShouldShowVideo] = useState(false);
@@ -95,15 +79,13 @@ export default function HomePage() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    // Tenta sempre mostrar o vídeo; o navegador decide se consegue autoplay.
     setShouldShowVideo(true);
   }, []);
 
   return (
-    <main className="w-full min-h-screen bg-[#01011c] text-white font-sans selection:bg-white selection:text-[#01011c]">
-
+    <main className="w-full bg-[#01011c] text-white font-sans selection:bg-white selection:text-[#01011c]">
       {/* 1. HERO SECTION - TRUE FULLSCREEN */}
-      <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center px-5 sm:px-8 lg:px-16 py-20 sm:py-24 lg:py-32" aria-label="Hero">
+      <section className="relative w-full min-h-screen overflow-hidden flex flex-col justify-center px-4 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-20 md:py-24 lg:py-32" aria-label="Hero">
         {/* Background Video/Image */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           {shouldShowVideo && !heroVideoError ? (
@@ -133,27 +115,38 @@ export default function HomePage() {
               sizes="100vw"
             />
           )}
-          {/* Heavy dark gradient overlay to ensure text readability a la Laguna */}
+          {/* Heavy dark gradient overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(to_top,#01011c_0%,#01011c/40_40%,transparent_60%)]" />
         </div>
 
-        {/* Content Aligned Center/Top */}
-          <motion.div
-          className="relative z-10 w-full max-w-7xl mr-auto flex flex-col gap-10 sm:gap-12"
+        {/* Content */}
+        <motion.div
+          className="relative z-10 w-full max-w-4xl flex flex-col gap-8 sm:gap-10 md:gap-12"
           initial="hidden"
           animate="visible"
           variants={stagger}
         >
-          <div className="max-w-3xl overflow-hidden mt-20 sm:mt-24 md:mt-28">
-            <motion.p variants={fadeIn} className="text-white/70 font-medium tracking-[0.3em] uppercase text-[11px] md:text-xs mb-5">
+          <div className="w-full overflow-hidden">
+            <motion.p 
+              variants={fadeIn} 
+              className="text-white/70 font-medium tracking-[0.3em] uppercase text-xs sm:text-sm md:text-base mb-4 sm:mb-5"
+            >
               Lançamento Oficial
             </motion.p>
+            
             <div className="overflow-hidden">
-              <motion.h1 variants={titleReveal} className="text-[2.5rem] sm:text-4xl md:text-6xl lg:text-[5.5rem] font-medium text-white tracking-tight leading-[0.95] mb-5 sm:mb-6 md:mb-8">
-                Fazenda<br />Medeiros
+              <motion.h1 
+                variants={titleReveal} 
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white tracking-tight leading-[1.1] mb-4 sm:mb-5 md:mb-6 break-words"
+              >
+                Fazenda<br className="hidden sm:block" />Medeiros
               </motion.h1>
             </div>
-            <motion.p variants={fadeIn} className="text-white/80 font-light leading-relaxed text-base sm:text-lg md:text-xl max-w-2xl">
+            
+            <motion.p 
+              variants={fadeIn} 
+              className="text-white/80 font-light leading-relaxed text-sm sm:text-base md:text-lg max-w-2xl break-words"
+            >
               Onde a imensidão do mar encontra a alma do campo – um novo jeito de viver.
             </motion.p>
           </div>
@@ -161,10 +154,12 @@ export default function HomePage() {
           <motion.div variants={fadeIn} className="flex-shrink-0 w-full sm:w-auto">
             <Link
               href="/condominios/fazenda-medeiros"
-              className="group flex w-full sm:w-auto items-center justify-between border border-white px-8 sm:px-12 py-5 sm:py-7 min-w-0 sm:min-w-[280px] max-w-sm sm:max-w-max hover:bg-white hover:text-[#01011c] transition-colors duration-300"
+              className="group flex w-full sm:w-auto items-center justify-between gap-3 border border-white px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 hover:bg-white hover:text-[#01011c] transition-colors duration-300"
             >
-              <span className="text-[11px] sm:text-xs font-semibold tracking-[0.35em] sm:tracking-[0.4em] uppercase">Quero receber mais informações</span>
-              <ArrowRight size={22} strokeWidth={1} className="transform group-hover:translate-x-3 transition-transform duration-500" />
+              <span className="text-[10px] sm:text-xs md:text-sm font-semibold tracking-[0.35em] uppercase whitespace-nowrap">
+                Quero receber mais informações
+              </span>
+              <ArrowRight size={18} strokeWidth={1} className="transform group-hover:translate-x-2 transition-transform duration-500 flex-shrink-0" />
             </Link>
           </motion.div>
         </motion.div>
@@ -181,8 +176,8 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* DESTAQUE CONDOMÍNIOS - BRUTALIST GRID (fundo branco) */}
-      <section className="py-20 md:py-28 px-5 sm:px-8 lg:px-16 bg-white text-[#01011c] overflow-hidden">
+      {/* DESTAQUE CONDOMÍNIOS - BRUTALIST GRID */}
+      <section className="w-full py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-8 lg:px-16 bg-white text-[#01011c] overflow-hidden">
         <motion.div
           className="w-full max-w-7xl mx-auto"
           initial="hidden"
@@ -190,512 +185,161 @@ export default function HomePage() {
           viewport={{ once: true, margin: "-100px" }}
           variants={stagger}
         >
-          <motion.div className="flex flex-col mb-12 md:mb-16" variants={fadeIn}>
-            <h2 className="text-[#01011c]/60 text-[11px] md:text-xs font-semibold tracking-[0.32em] uppercase mb-3">Coleção Exclusiva</h2>
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-[#01011c]/10 pb-10 md:pb-14">
-              <div className="overflow-hidden">
-                <motion.h3 variants={titleReveal} className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#01011c] uppercase">
+          {/* Header */}
+          <motion.div className="flex flex-col mb-10 sm:mb-12 md:mb-16" variants={fadeIn}>
+            <h2 className="text-[#01011c]/60 text-[10px] sm:text-xs md:text-sm font-semibold tracking-[0.32em] uppercase mb-3 sm:mb-4">
+              Coleção Exclusiva
+            </h2>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 border-b border-[#01011c]/10 pb-8 md:pb-12">
+              <div className="overflow-hidden flex-1">
+                <motion.h3 
+                  variants={titleReveal} 
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#01011c] uppercase leading-[1.1] break-words"
+                >
                   <span className="font-medium">CONDOMÍNIOS</span>
                 </motion.h3>
               </div>
-              <motion.div variants={slideRight}>
-                <Link href="/condominios" className="group flex items-center gap-4 text-[10px] font-semibold tracking-[0.3em] uppercase text-[#01011c] hover:text-[#01011c]/60 transition-colors">
-                  Ver todos os Condomínios <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
+              <motion.div variants={slideRight} className="flex-shrink-0">
+                <Link 
+                  href="/condominios" 
+                  className="group inline-flex items-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] font-semibold tracking-[0.3em] uppercase text-[#01011c] hover:text-[#01011c]/60 transition-colors whitespace-nowrap"
+                >
+                  Ver todos <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </motion.div>
             </div>
           </motion.div>
 
+          {/* Grid de Cards */}
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 border-x border-t border-[#01011c]/10 overflow-visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-x border-t border-[#01011c]/10 overflow-visible"
             variants={staggerFast}
           >
             {/* CONDOMÍNIO 1 */}
             <Link href="/condominios/quinta-dos-lagos" className="block h-full">
               <motion.div
-                className="group relative border-b lg:border-r border-[#01011c]/10 cursor-pointer h-full"
+                className="group relative border-b lg:border-r border-[#01011c]/10 cursor-pointer h-full flex flex-col"
                 variants={slideLeft}
                 whileHover={{
-                  y: -8,
-                  boxShadow:
-                    '0 24px 48px -12px rgba(1,1,28,0.22)',
-                  transition: {
-                    duration: 0.35,
-                    ease: [0.22, 1, 0.36, 1] as const,
-                  },
+                  y: -4,
+                  boxShadow: '0 12px 24px -6px rgba(1,1,28,0.15)',
+                  transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
                 }}
                 whileTap={{
                   scale: 0.98,
                   transition: { duration: 0.15 },
                 }}
               >
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-100">
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 flex-shrink-0">
                   <Image
                     src="/imagens/quinta-dos-lagos.png"
                     alt="Quinta dos Lagos — Condomínio Fechado de Alto Padrão"
                     fill
                     loading="lazy"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   />
                   <div className="absolute inset-0 bg-[#01011c]/10 group-hover:bg-[#01011c]/20 transition-colors duration-300" />
+                </div>
 
-                  {/* selo de lançamento removido */}
-
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/60 to-transparent">
-                    <h4 className="text-3xl font-light text-white uppercase mb-4">
+                <div className="flex-1 p-4 sm:p-5 md:p-6 flex flex-col justify-between bg-gradient-to-t from-[#01011c]/95 via-[#01011c]/70 to-transparent">
+                  <div>
+                    <h4 className="text-lg sm:text-xl md:text-2xl font-light text-white uppercase mb-2 sm:mb-3 leading-tight break-words">
                       QUINTA DOS LAGOS
                     </h4>
-                    <p className="text-white/90 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
-                      O Condomínio Quinta dos Lagos é uma oportunidade exclusiva para investir com
-                      segurança. Um projeto inovador que une moradia e lazer em um só lugar.
+                    <p className="text-white/90 font-light text-[10px] sm:text-xs leading-relaxed uppercase tracking-widest mb-4 line-clamp-3 break-words">
+                      O Condomínio Quinta dos Lagos é uma oportunidade exclusiva para investir com segurança. Um projeto inovador que une moradia e lazer.
                     </p>
-                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/40 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
-                      <ArrowRight size={16} strokeWidth={1} />
-                    </span>
                   </div>
+                  <span className="inline-flex items-center justify-center w-10 h-10 border border-white/40 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300 flex-shrink-0">
+                    <ArrowRight size={14} strokeWidth={1} />
+                  </span>
                 </div>
               </motion.div>
             </Link>
 
-            {/* Card 2 - vale do ouro */}
+            {/* CONDOMÍNIO 2 - VALE DO OURO */}
             <Link href="/chales/vale-do-ouro" className="block h-full">
               <motion.div
-                className="group relative border-b lg:border-r border-[#01011c]/10 cursor-pointer h-full"
+                className="group relative border-b lg:border-r border-[#01011c]/10 cursor-pointer h-full flex flex-col"
                 variants={scaleIn}
                 whileHover={{
-                  y: -8,
-                  boxShadow:
-                    '0 24px 48px -12px rgba(1,1,28,0.22)',
-                  transition: {
-                    duration: 0.35,
-                    ease: [0.22, 1, 0.36, 1] as const,
-                  },
+                  y: -4,
+                  boxShadow: '0 12px 24px -6px rgba(1,1,28,0.15)',
+                  transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
                 }}
                 whileTap={{
                   scale: 0.98,
                   transition: { duration: 0.15 },
                 }}
               >
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-100">
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 flex-shrink-0">
                   <Image
                     src="/imagens/vale-do-ouro.png"
-                    alt="Vale do Ouro — Chalés de Alto Padrão com Cachoeiras Privativas"
+                    alt="Vale do Ouro — Chalés de Alto Padrão"
                     fill
                     loading="lazy"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   />
                   <div className="absolute inset-0 bg-[#01011c]/10 group-hover:bg-[#01011c]/20 transition-colors duration-300" />
+                </div>
 
-                  {/* selo de lançamento removido */}
-
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/60 to-transparent">
-                    <h4 className="text-3xl font-light text-white uppercase mb-4">
+                <div className="flex-1 p-4 sm:p-5 md:p-6 flex flex-col justify-between bg-gradient-to-t from-[#01011c]/95 via-[#01011c]/70 to-transparent">
+                  <div>
+                    <h4 className="text-lg sm:text-xl md:text-2xl font-light text-white uppercase mb-2 sm:mb-3 leading-tight break-words">
                       VALE DO OURO
                     </h4>
-                    <p className="text-white/90 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
-                      Arquitetura brutalista com vista panorâmica 360°. Conforto alpino, aquecimento
-                      radiante e varanda suspensa sobre o vale.
+                    <p className="text-white/90 font-light text-[10px] sm:text-xs leading-relaxed uppercase tracking-widest mb-4 line-clamp-3 break-words">
+                      Arquitetura brutalista com vista panorâmica 360°. Conforto alpino, aquecimento radiante e varanda suspensa.
                     </p>
-                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/40 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
-                      <ArrowRight size={16} strokeWidth={1} />
-                    </span>
                   </div>
+                  <span className="inline-flex items-center justify-center w-10 h-10 border border-white/40 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300 flex-shrink-0">
+                    <ArrowRight size={14} strokeWidth={1} />
+                  </span>
                 </div>
               </motion.div>
             </Link>
 
-            {/* Card 3 - Refúgio das Águas (em breve / apagado) */}
-            <Link href="/condominios/refugio-das-aguas" className="block h-full">
+            {/* CONDOMÍNIO 3 - FAZENDA MEDEIROS */}
+            <Link href="/condominios/fazenda-medeiros" className="block h-full">
               <motion.div
-                className="group relative border-b border-[#01011c]/10 cursor-pointer h-full"
+                className="group relative border-b lg:border-r border-[#01011c]/10 cursor-pointer h-full flex flex-col"
                 variants={slideRight}
                 whileHover={{
-                  y: -8,
-                  boxShadow:
-                    '0 24px 48px -12px rgba(1,1,28,0.22)',
-                  transition: {
-                    duration: 0.35,
-                    ease: [0.22, 1, 0.36, 1] as const,
-                  },
+                  y: -4,
+                  boxShadow: '0 12px 24px -6px rgba(1,1,28,0.15)',
+                  transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
                 }}
                 whileTap={{
                   scale: 0.98,
                   transition: { duration: 0.15 },
                 }}
               >
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-800">
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100 flex-shrink-0">
                   <Image
-                    src="/imagens/refugio-da-agua.png"
-                    alt="Refúgio das Águas"
+                    src="/imagens/fazenda-medeiros.png"
+                    alt="Fazenda Medeiros — Condomínio Residencial"
                     fill
                     loading="lazy"
-                    className="object-cover transition-transform duration-[3s] group-hover:scale-105 opacity-50 grayscale"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                   />
-                  <div className="absolute inset-0 bg-[#01011c]/75 transition-colors duration-300" />
-                  <EmBreveRibbon />
+                  <div className="absolute inset-0 bg-[#01011c]/10 group-hover:bg-[#01011c]/20 transition-colors duration-300" />
+                </div>
 
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/90 via-[#01011c]/50 to-transparent">
-                    <h4 className="text-3xl font-light text-white/50 uppercase mb-4">
-                      REFÚGIO DAS ÁGUAS
+                <div className="flex-1 p-4 sm:p-5 md:p-6 flex flex-col justify-between bg-gradient-to-t from-[#01011c]/95 via-[#01011c]/70 to-transparent">
+                  <div>
+                    <h4 className="text-lg sm:text-xl md:text-2xl font-light text-white uppercase mb-2 sm:mb-3 leading-tight break-words">
+                      FAZENDA MEDEIROS
                     </h4>
-                    <p className="text-white/40 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
-                      À beira de lagos cristalinos, design contemporâneo com amâncias de resort.
-                      Hospedagem gerenciada com retorno garantido.
+                    <p className="text-white/90 font-light text-[10px] sm:text-xs leading-relaxed uppercase tracking-widest mb-4 line-clamp-3 break-words">
+                      Condomínio residencial fechado com segurança 24h, áreas de lazer e natureza preservada em Joinville.
                     </p>
-                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/15 text-white/35 group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
-                      <ArrowRight size={16} strokeWidth={1} />
-                    </span>
                   </div>
-                </div>
-              </motion.div>
-            </Link>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* PARCEIROS - CARROSSEL INFINITO (Abaixo do primeiro destaque) */}
-      <section className="py-20 md:py-28 bg-white overflow-hidden border-t border-[#01011c]/5" aria-label="Nossos Parceiros">
-        <motion.div
-          className="w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeIn}
-        >
-          <div className="flex flex-col items-center text-center">
-            <h2 className="text-[#01011c]/60 text-[11px] md:text-xs font-semibold tracking-[0.32em] uppercase mb-3">Conexões Estratégicas</h2>
-            <h3 className="text-3xl md:text-5xl font-light tracking-tight text-[#01011c] uppercase mb-6 md:mb-8">
-              Clientes e <span className="font-medium">Parceiros</span>
-            </h3>
-            <div className="w-12 h-[1px] bg-[#01011c]/10" />
-          </div>
-        </motion.div>
-
-        <div className="relative w-full overflow-hidden flex">
-          {/* Infinite Scroll Container */}
-          <motion.div
-            className="flex whitespace-nowrap gap-1 md:gap-2 items-center"
-            animate={{
-              x: ["0%", "-50%"],
-            }}
-            transition={{
-              duration: 35,
-              ease: "linear",
-              repeat: Infinity,
-            }}
-          >
-            {[...Array(2)].map((_, setIndex) => (
-              <div key={setIndex} className="flex gap-1 md:gap-2 items-center px-0">
-                {[
-                  {
-                    name: "Cacau Show",
-                    logo: "/parceiros/cacau.png",
-                    url: "https://www.cacaushow.com.br/",
-                  },
-                  {
-                    name: "Daxo",
-                    logo: "/parceiros/daxo.webp",
-                    url: "https://www.daxo.com.br/",
-                  },
-                  {
-                    name: "Milium",
-                    logo: "/parceiros/milium.png",
-                    url: "https://www.milium.com.br/",
-                  },
-                  {
-                    name: "FG Empreendimentos",
-                    logo: "/parceiros/fg.png",
-                    url: "https://fgempreendimentos.com.br/",
-                  },
-                  {
-                    name: "Halsten",
-                    logo: "/parceiros/halsten.png",
-                    url: "https://halsten.com.br/",
-                  },
-                  {
-                    name: "Komprao",
-                    logo: "/parceiros/komprao.png",
-                    url: "https://www.komprao.com.br/",
-                  },
-                ].map((partner, index) => (
-                  <a
-                    key={`${setIndex}-${index}`}
-                    href={partner.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative w-28 sm:w-40 md:w-60 h-16 sm:h-20 md:h-28 flex-shrink-0 hover:scale-110 transition-all duration-500 ease-out z-20"
-                    aria-label={partner.name}
-                  >
-                    <img
-                      src={partner.logo}
-                      alt={partner.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </a>
-                ))}
-              </div>
-            ))}
-          </motion.div>
-
-          {/* Side Fades for smooth entry/exit */}
-          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-        </div>
-      </section>
-
-      {/* DESTAQUE EMPREENDIMENTOS - GRADE 3 COLUNAS (fundo azul escuro) */}
-      <section className="py-20 md:py-28 px-5 sm:px-8 lg:px-16 bg-[#01011c] overflow-hidden">
-        <motion.div
-          className="w-full max-w-7xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={stagger}
-        >
-          <motion.div className="flex flex-col mb-12 md:mb-16" variants={fadeIn}>
-            <h2 className="text-white/60 text-[11px] md:text-xs font-semibold tracking-[0.32em] uppercase mb-3">Conceito Vertical</h2>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/10 pb-10 md:pb-14">
-              <div className="overflow-hidden">
-                <motion.h3 variants={titleReveal} className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight uppercase text-white">
-                  <span className="font-medium">Empreendimentos</span>
-                </motion.h3>
-              </div>
-              <motion.div variants={slideRight}>
-                <Link href="/empreendimentos" className="group flex items-center gap-4 text-[10px] font-semibold tracking-[0.3em] uppercase text-white hover:text-white/70 transition-colors">
-                  Ver todos os Empreendimentos <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 border-x border-t border-white/10 overflow-visible"
-            variants={staggerFast}
-          >
-            {/* EMPREENDIMENTO 1 */}
-            <Link href="/empreendimentos/tauari-residence" className="block h-full">
-              <motion.div
-                className="group relative border-b lg:border-r border-white/10 cursor-pointer h-full"
-                variants={slideLeft}
-                whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(0,0,0,0.35)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
-                whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
-              >
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
-                  <Image
-                    src="/imagens/tauari.png"
-                    alt="Tauari Residence"
-                    fill
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-[#01011c]/20 group-hover:bg-[#01011c]/40 transition-colors duration-300" />
-
-                  {/* selo de lançamento removido */}
-
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/60 to-transparent">
-                    <h4 className="text-3xl font-light text-white uppercase mb-4">Tauari<br />Residence</h4>
-                    <p className="text-white/80 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
-                      Tauari Residence é o primeiro empreendimento autoral da Group 33: arquitetura contemporânea, plantas otimizadas e diferenciais exclusivos.
-                    </p>
-                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/30 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
-                      <ArrowRight size={16} strokeWidth={1} />
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
-
-            {/* EMPREENDIMENTO 2 - 33 INCORP RESIDENCE (EM BREVE) */}
-            <Link href="/empreendimentos/horizon" className="block h-full">
-              <motion.div
-                className="group relative border-b lg:border-r border-white/10 cursor-pointer h-full"
-                variants={scaleIn}
-                whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(0,0,0,0.35)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
-                whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
-              >
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
-                  <Image
-                    src="/novoempre.jpeg"
-                    alt="Residencial Horizon — Empreendimento de alto padrão no Centro de Joinville"
-                    fill
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-[#01011c]/20 group-hover:bg-[#01011c]/40 transition-colors duration-300" />
-                  <EmBreveRibbon />
-
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 min-h-[200px] sm:min-h-[220px] md:min-h-[240px] flex flex-col bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/60 to-transparent">
-                    <h4 className="text-3xl font-light text-white uppercase mb-4">Residencial Horizon</h4>
-                    <p className="text-white/80 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
-                      Torre residencial contemporânea com foco em design autoral, conforto e valorização patrimonial, em uma localização estratégica de Joinville.
-                    </p>
-                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/30 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
-                      <ArrowRight size={16} strokeWidth={1} />
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
-
-            {/* EMPREENDIMENTO 3 - FICTÍCIO (AURORA) */}
-            <Link href="/empreendimentos/empreendimento-01" className="block h-full">
-              <motion.div
-                className="group relative border-b border-white/10 cursor-pointer h-full"
-                variants={slideRight}
-                whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(0,0,0,0.35)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
-                whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
-              >
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#0A0A3A]">
-                  <Image
-                    src="/imagens/aurora.png"
-                    alt="Aurora Residences"
-                    fill
-                    loading="lazy"
-                    className="object-cover transition-transform duration-[3s] group-hover:scale-105 opacity-50 grayscale"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-[#01011c]/85 transition-colors duration-300" />
-                  <EmBreveRibbon />
-
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8">
-                    <h4 className="text-3xl font-light text-white/50 uppercase mb-4">Aurora<br />Residences</h4>
-                    <p className="text-white/40 font-light text-[11px] leading-relaxed uppercase tracking-widest mb-6 max-w-[80%]">
-                      Design orgânico inspirado nas curvas do litoral. Studios e apartamentos de 1 e 2 dormitórios com rooftop panorâmico e automação residencial completa.
-                    </p>
-                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/15 text-white/35 group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
-                      <ArrowRight size={16} strokeWidth={1} />
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* DESTAQUE CONDOMÍNIOS - GRADE 3 COLUNAS (fundo branco) */}
-      <section className="py-20 md:py-28 px-5 sm:px-8 lg:px-16 bg-white text-[#01011c] overflow-hidden">
-        <motion.div
-          className="w-full max-w-7xl mx-auto"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={stagger}
-        >
-          <motion.div className="flex flex-col mb-12 md:mb-16" variants={fadeIn}>
-            <h2 className="text-[#01011c]/60 text-[11px] md:text-xs font-semibold tracking-[0.32em] uppercase mb-3">Vida em Comunidade</h2>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-[#01011c]/10 pb-10 md:pb-14">
-              <div className="overflow-hidden">
-                <motion.h3 variants={titleReveal} className="text-3xl md:text-5xl lg:text-6xl font-light tracking-tight text-[#01011c] uppercase">
-                  <span className="font-medium">Geminados</span>
-                </motion.h3>
-              </div>
-              <motion.div variants={slideRight}>
-                <Link href="/geminado" className="group flex items-center gap-4 text-[10px] font-semibold tracking-[0.3em] uppercase text-[#01011c] hover:text-[#01011c]/60 transition-colors">
-                  Ver todos os Geminados <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" />
-                </Link>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-0 border-x border-t border-[#01011c]/10 overflow-visible"
-            variants={staggerFast}
-          >
-            {/* CONDOMÍNIO 1 - BOM RETIRO */}
-            <Link href="/geminado" className="block h-full">
-              <motion.div
-                className="group relative border-b lg:border-r border-[#01011c]/10 cursor-pointer h-full"
-                variants={slideLeft}
-                whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(1,1,28,0.22)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
-                whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
-              >
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src="/imagens/bomretiro.png"
-                    alt="Bom Retiro — Geminados de alto padrão 100% vendidos em Joinville"
-                    fill
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-[#01011c]/10 group-hover:bg-[#01011c]/20 transition-colors duration-300" />
-
-                  <SoldRibbon />
-
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/40 to-transparent">
-                    <h4 className="text-3xl font-light text-white uppercase mb-4">Bom<br />Retiro</h4>
-                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/40 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
-                      <ArrowRight size={16} strokeWidth={1} />
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
-
-            {/* CONDOMÍNIO 2 - SAGUAÇU */}
-            <Link href="/geminado" className="block h-full">
-              <motion.div
-                className="group relative border-b lg:border-r border-[#01011c]/10 cursor-pointer h-full"
-                variants={scaleIn}
-                whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(1,1,28,0.22)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
-                whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
-              >
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src="/imagens/saguacu.png"
-                    alt="Saguaçu — Geminados de alto padrão 100% vendidos em Joinville"
-                    fill
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-[#01011c]/10 group-hover:bg-[#01011c]/20 transition-colors duration-300" />
-
-                  <SoldRibbon />
-
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/40 to-transparent">
-                    <h4 className="text-3xl font-light text-white uppercase mb-4">Saguaçu</h4>
-                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/40 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
-                      <ArrowRight size={16} strokeWidth={1} />
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-            </Link>
-
-            {/* CONDOMÍNIO 3 - GLÓRIA */}
-            <Link href="/geminado" className="block h-full">
-              <motion.div
-                className="group relative border-b border-[#01011c]/10 cursor-pointer h-full"
-                variants={slideRight}
-                whileHover={{ y: -8, boxShadow: '0 24px 48px -12px rgba(1,1,28,0.22)', transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] as const } }}
-                whileTap={{ scale: 0.98, transition: { duration: 0.15 } }}
-              >
-                <div className="relative aspect-[2/3] w-full overflow-hidden bg-gray-100">
-                  <Image
-                    src="/imagens/gloria%20-%20Copia.png"
-                    alt="Glória — Geminados de alto padrão 100% vendidos em Joinville"
-                    fill
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-[#01011c]/5 transition-colors duration-300" />
-
-                  <SoldRibbon />
-
-                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-[#01011c]/85 via-[#01011c]/40 to-transparent">
-                    <h4 className="text-3xl font-light text-white uppercase mb-4">Glória</h4>
-                    <span className="inline-flex items-center justify-center w-12 h-12 border border-white/20 text-white/40 group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300">
-                      <ArrowRight size={16} strokeWidth={1} />
-                    </span>
-                  </div>
+                  <span className="inline-flex items-center justify-center w-10 h-10 border border-white/40 text-white group-hover:bg-white group-hover:text-[#01011c] transition-all duration-300 flex-shrink-0">
+                    <ArrowRight size={14} strokeWidth={1} />
+                  </span>
                 </div>
               </motion.div>
             </Link>

@@ -54,7 +54,7 @@ const condos = [
     imageSrc: '/imagens/quinta-dos-lagos.png',
     imageAlt: 'Quinta dos Lagos — Condomínio fechado com lagos privativos em Joinville',
     title: 'Condomínio Quinta dos Lagos',
-    subtitle: '[Cidade / Estado]',
+    subtitle: 'Joinville, SC',
     description:
       'Condomínio horizontal com lagos, áreas verdes e infraestrutura completa para moradia, descanso e investimento em longo prazo.',
   },
@@ -71,18 +71,18 @@ const condos = [
 
 export default function CondominiosPage() {
   return (
-    <main className="w-full min-h-screen bg-white text-gray-900 font-sans pt-20 md:pt-24 pb-16 md:pb-20 px-6 md:px-12 overflow-x-hidden">
+    <main className="w-full min-h-screen bg-white text-gray-900 font-sans pt-16 sm:pt-20 md:pt-24 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8 lg:px-16 overflow-x-hidden">
       <div className="max-w-7xl mx-auto w-full">
         <SectionHeader
           eyebrow="Coleção Exclusiva"
           title="Condomínios & Geminados"
           asH1
         />
-        <p className="text-gray-500 font-light text-base md:text-lg mt-4 mb-10 md:mb-14 max-w-2xl">
+        <p className="text-gray-500 font-light text-base sm:text-lg md:text-lg mt-4 mb-10 sm:mb-12 md:mb-16 max-w-2xl leading-relaxed break-words">
           Conheça os produtos horizontais do portfólio Group 33: condomínios fechados e geminados planejados para oferecer segurança, conforto e uma experiência de viver com padrão diferenciado.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 w-full min-w-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full min-w-0">
           {condos.map((condo) => (
             <ListingCard key={condo.title} {...condo} />
           ))}

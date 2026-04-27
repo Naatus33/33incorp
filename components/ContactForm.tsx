@@ -74,16 +74,16 @@ export default function ContactForm({ propertyId, onSuccess }: ContactFormProps)
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-white/10 backdrop-blur-md p-10 border border-white/20 text-center flex flex-col items-center gap-6"
+        className="bg-white/10 backdrop-blur-md p-6 sm:p-8 md:p-10 border border-white/20 text-center flex flex-col items-center gap-4 sm:gap-6 rounded-lg"
       >
-        <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
-          <CheckCircle2 size={40} />
+        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
+          <CheckCircle2 size={32} />
         </div>
         <div>
-          <h3 className="text-2xl font-medium text-white mb-2 uppercase tracking-tight">
+          <h3 className="text-xl sm:text-2xl font-medium text-white mb-2 uppercase tracking-tight break-words">
             Recebemos seu contato
           </h3>
-          <p className="text-white/60 font-light text-sm max-w-xs">
+          <p className="text-white/60 font-light text-xs sm:text-sm max-w-xs mx-auto break-words">
             Um de nossos consultores especializados entrará em contato com você em breve.
           </p>
         </div>
@@ -103,15 +103,15 @@ export default function ContactForm({ propertyId, onSuccess }: ContactFormProps)
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6 bg-red-500/10 border border-red-500/30 rounded-lg p-4 flex items-start gap-3"
+          className="mb-4 sm:mb-6 bg-red-500/10 border border-red-500/30 rounded-lg p-3 sm:p-4 flex items-start gap-2 sm:gap-3"
         >
-          <AlertCircle size={20} className="text-red-400 flex-shrink-0 mt-0.5" />
-          <p className="text-red-200 text-sm">{error}</p>
+          <AlertCircle size={18} className="text-red-400 flex-shrink-0 mt-0.5" />
+          <p className="text-red-200 text-xs sm:text-sm break-words">{error}</p>
         </motion.div>
       )}
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
           <div className="flex flex-col gap-2">
             <label htmlFor="name" className="text-[0.625rem] uppercase tracking-[0.3em] text-white/50 font-medium ml-1">
               Nome Completo
@@ -123,7 +123,7 @@ export default function ContactForm({ propertyId, onSuccess }: ContactFormProps)
               placeholder="Ex: João Silva"
               value={formData.name}
               onChange={handleChange}
-              className="bg-white/5 border border-white/10 px-6 py-4 text-white text-sm focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/20"
+              className="bg-white/5 border border-white/10 px-4 sm:px-5 md:px-6 py-3 sm:py-4 text-white text-xs sm:text-sm focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/20 rounded"
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -137,7 +137,7 @@ export default function ContactForm({ propertyId, onSuccess }: ContactFormProps)
               placeholder="(00) 00000-0000"
               value={formData.phone}
               onChange={handleChange}
-              className="bg-white/5 border border-white/10 px-6 py-4 text-white text-sm focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/20"
+              className="bg-white/5 border border-white/10 px-4 sm:px-5 md:px-6 py-3 sm:py-4 text-white text-xs sm:text-sm focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/20 rounded"
             />
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function ContactForm({ propertyId, onSuccess }: ContactFormProps)
             placeholder="email@exemplo.com"
             value={formData.email}
             onChange={handleChange}
-            className="bg-white/5 border border-white/10 px-6 py-4 text-white text-sm focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/20"
+            className="bg-white/5 border border-white/10 px-4 sm:px-5 md:px-6 py-3 sm:py-4 text-white text-xs sm:text-sm focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/20 rounded"
           />
         </div>
 
@@ -167,7 +167,7 @@ export default function ContactForm({ propertyId, onSuccess }: ContactFormProps)
             placeholder="Como podemos ajudar?"
             value={formData.message}
             onChange={handleChange}
-            className="bg-white/5 border border-white/10 px-6 py-4 text-white text-sm focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/20 resize-none"
+            className="bg-white/5 border border-white/10 px-4 sm:px-5 md:px-6 py-3 sm:py-4 text-white text-xs sm:text-sm focus:outline-none focus:border-white/40 transition-colors placeholder:text-white/20 resize-none rounded"
           />
         </div>
 
@@ -176,17 +176,17 @@ export default function ContactForm({ propertyId, onSuccess }: ContactFormProps)
           whileTap={{ scale: 0.98 }}
           type="submit"
           disabled={isSubmitting}
-          className="group flex items-center justify-between border border-white px-10 py-5 bg-white text-[#01011c] hover:bg-transparent hover:text-white transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="group flex items-center justify-between gap-2 sm:gap-3 border border-white px-4 sm:px-6 md:px-10 py-3 sm:py-4 md:py-5 bg-white text-[#01011c] hover:bg-transparent hover:text-white transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed rounded"
         >
-          <span className="text-xs font-semibold tracking-[0.4em] uppercase">
+          <span className="text-xs sm:text-sm font-semibold tracking-[0.4em] uppercase whitespace-nowrap">
             {isSubmitting ? 'Enviando...' : 'Solicitar Consultoria'}
           </span>
           {!isSubmitting && (
-            <Send size={18} strokeWidth={1.5} className="transform group-hover:translate-x-2 transition-transform duration-500" />
+            <Send size={16} strokeWidth={1.5} className="transform group-hover:translate-x-2 transition-transform duration-500 flex-shrink-0" />
           )}
         </motion.button>
 
-        <p className="text-[0.5625rem] text-white/30 text-center uppercase tracking-widest mt-4">
+        <p className="text-[0.5625rem] text-white/30 text-center uppercase tracking-widest mt-2 sm:mt-4 break-words">
           Ao enviar, você concorda com nossos termos e política de privacidade.
         </p>
       </form>

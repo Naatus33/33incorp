@@ -50,17 +50,17 @@ export default function Header() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         showTransparentHeroStyle
-          ? 'bg-transparent py-6'
+          ? 'bg-transparent py-4 sm:py-5 md:py-6'
           : isQuemSomos
-            ? 'bg-[#01011c] border-b border-white/10 py-4'
-            : 'bg-white shadow-sm border-b border-[#01011c]/10 py-4'
+            ? 'bg-[#01011c] border-b border-white/10 py-3 sm:py-4'
+            : 'bg-white shadow-sm border-b border-[#01011c]/10 py-3 sm:py-4'
       }`}
     >
-      <div className="w-full px-6 md:px-12 flex justify-between items-center">
+      <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 flex justify-between items-center">
         {/* Logo */}
         <Link
           href="/"
-          className={`text-xl md:text-2xl font-normal tracking-[0.2em] uppercase transition-colors duration-500 ${
+          className={`text-base sm:text-lg md:text-xl font-normal tracking-[0.2em] uppercase transition-colors duration-500 flex-shrink-0 ${
             isDarkHeader ? 'text-white' : 'text-[#01011c]'
           }`}
         >
@@ -75,7 +75,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex gap-12" aria-label="Navegação principal">
+        <nav className="hidden lg:flex gap-6 md:gap-8 lg:gap-10" aria-label="Navegação principal">
           {NAV_LINKS.map(({ href, label }) => {
             const isActive = pathname === href;
             const baseColor = isDarkHeader ? 'text-white' : 'text-[#01011c]';
@@ -85,7 +85,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className={`relative text-[0.8rem] xl:text-[0.85rem] font-medium tracking-[0.22em] uppercase transition-colors duration-500 rounded-none px-3 py-2 ${baseColor} ${hoverColor}`}
+                className={`relative text-xs sm:text-sm font-medium tracking-[0.22em] uppercase transition-colors duration-500 rounded-none px-2 py-2 ${baseColor} ${hoverColor}`}
               >
                 {label}
                 {isActive && (
@@ -97,10 +97,10 @@ export default function Header() {
         </nav>
 
         {/* CTA button */}
-        <div className="hidden lg:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-6 md:gap-8 flex-shrink-0">
           <Link
             href="#contato"
-            className={`px-9 py-4 border text-[0.8rem] xl:text-[0.85rem] font-semibold tracking-[0.32em] uppercase transition-colors duration-500 rounded-none ${
+            className={`px-6 md:px-8 py-3 border text-xs sm:text-sm font-semibold tracking-[0.32em] uppercase transition-colors duration-500 rounded-none ${
               isDarkHeader
                 ? 'border-white text-white hover:bg-white hover:text-[#01011c]'
                 : 'border-[#01011c] text-[#01011c] hover:bg-[#01011c] hover:text-white'
@@ -113,14 +113,14 @@ export default function Header() {
         {/* Mobile menu button */}
         <button
           type="button"
-          className={`lg:hidden p-3 transition-colors ${
+          className={`lg:hidden p-2 transition-colors flex-shrink-0 ${
             isDarkHeader ? 'text-white' : 'text-[#01011c]'
           }`}
           onClick={() => setMobileMenuOpen((prev) => !prev)}
           aria-label={mobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
+          {mobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
         </button>
       </div>
 
@@ -137,7 +137,7 @@ export default function Header() {
               aria-hidden="true"
             />
             <motion.nav
-              className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl z-50 pt-24 px-8 pb-10 flex flex-col gap-7 lg:hidden"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-xs bg-white shadow-2xl z-50 pt-20 px-6 pb-10 flex flex-col gap-6 lg:hidden overflow-y-auto"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -150,7 +150,7 @@ export default function Header() {
                   <Link
                     key={href}
                     href={href}
-                    className={`text-[0.85rem] sm:text-[0.95rem] font-medium tracking-[0.22em] uppercase transition-colors rounded-none px-1 py-2.5 ${
+                    className={`text-sm sm:text-base font-medium tracking-[0.22em] uppercase transition-colors rounded-none px-2 py-2 ${
                       isActive
                         ? 'text-[#01011c] border-b border-[#01011c]'
                         : 'text-[#01011c] hover:text-[#01011c]/60'
@@ -163,7 +163,7 @@ export default function Header() {
               })}
               <Link
                 href="#contato"
-                className="mt-6 px-6 py-3.5 border border-[#01011c] text-[#01011c] text-[0.85rem] font-semibold tracking-[0.28em] uppercase hover:bg-[#01011c] hover:text-white transition-colors rounded-none w-full max-w-xs text-center"
+                className="mt-4 px-6 py-3 border border-[#01011c] text-[#01011c] text-sm font-semibold tracking-[0.28em] uppercase hover:bg-[#01011c] hover:text-white transition-colors rounded-none w-full text-center"
                 onClick={closeMobileMenu}
               >
                 Fale Conosco

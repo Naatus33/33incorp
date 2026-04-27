@@ -53,11 +53,23 @@
 html {
   /* Removido: font-size: 85%; - Mantém o tamanho padrão para melhor acessibilidade */
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Tipografia Base - Melhorada para Responsividade */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.6;
 }
 
 /* Acessibilidade: Respeita preferências de movimento reduzido */
@@ -69,4 +81,35 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Melhorias de Responsividade para Textos Longos */
+@media (max-width: 640px) {
+  h1 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Garantir que containers não causem overflow */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Melhorias para Links e Botões */
+a, button {
+  transition: all 0.3s ease;
+}
+
+/* Garantir espaçamento adequado entre elementos */
+section {
+  position: relative;
+  z-index: 1;
 }
